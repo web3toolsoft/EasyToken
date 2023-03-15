@@ -31,6 +31,16 @@
                 <version>${web3j.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.web3j</groupId>
+                <artifactId>abi</artifactId>
+                <version>${web3j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3j</groupId>
+                <artifactId>crypto</artifactId>
+                <version>${web3j.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.github.briandilley.jsonrpc4j</groupId>
                 <artifactId>jsonrpc4j</artifactId>
                 <version>${jsonrpc4j.version}</version>
