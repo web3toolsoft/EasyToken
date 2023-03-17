@@ -18,7 +18,4 @@
         <module>easytoken-wallet-service</module>
         <module>easytoken-wallet-api</module>
     </modules>
-
-    <properties></properties>
-
 </project>
