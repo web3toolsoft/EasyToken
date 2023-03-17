@@ -1,4 +1,4 @@
-package com.web3toolsoft.easytoken;
+package com.web3toolsoft.easytoken.wallet.job;
 
 public class Main {
     public static void main(final String[] args) {

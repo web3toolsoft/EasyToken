@@ -1,7 +1,12 @@
 package com.web3toolsoft.easytoken.admin;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class AdminServerApplication {
+
     public static void main(final String[] args) {
-        System.out.println("Hello world!");
+        SpringApplication.run(AdminServerApplication.class, args);
     }
 }
