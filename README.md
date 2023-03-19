@@ -15,4 +15,4 @@ EasyToken is a centralized cryptocurrency wallet and supports 70+ blockchain net
 
 [EasyToken]: https://github.com/web3toolsoft/EasyToken
 
-[Architecture]: docs/assets/architecture.png
+[Architecture]: /docs/assets/architecture.png
