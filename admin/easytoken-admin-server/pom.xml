@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.web3toolsoft.easytoken</groupId>
         <artifactId>easytoken-parent</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>easytoken-admin-server</artifactId>
     <dependencies>
@@ -32,10 +32,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>com.mysql</groupId>
