@@ -8,20 +8,18 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.web3toolsoft.spring.commons</groupId>
+    <groupId>com.web3toolsoft.commons</groupId>
     <artifactId>web3toolsoft-commons</artifactId>
     <packaging>pom</packaging>
-    <description>web3toolsoft commons</description>
+    <description>web3toolsoft common components</description>
     <modules>
         <module>web3toolsoft-commons-lang</module>
         <module>web3toolsoft-commons-mybatis</module>
-        <module>web3toolsoft-commons-ratelimiter</module>
-        <module>web3toolsoft-commons-security</module>
-        <module>web3toolsoft-commons-security-jwt</module>
-        <module>web3toolsoft-commons-security-token</module>
-        <module>web3toolsoft-commons-spring-support</module>
-        <module>web3toolsoft-commons-ucenter-support</module>
         <module>web3toolsoft-commons-i18n</module>
+        <module>web3toolsoft-commons-rate-limiter</module>
+        <module>web3toolsoft-commons-security</module>
+        <module>web3toolsoft-commons-spring</module>
+        <module>web3toolsoft-commons-users</module>
     </modules>
     <build>
         <plugins>
