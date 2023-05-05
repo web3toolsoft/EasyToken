@@ -16,7 +16,7 @@
         <module>web3toolsoft-commons-lang</module>
         <module>web3toolsoft-commons-mybatis</module>
         <module>web3toolsoft-commons-i18n</module>
-        <module>web3toolsoft-commons-rate-limiter</module>
+        <module>web3toolsoft-commons-ratelimiter</module>
         <module>web3toolsoft-commons-security</module>
         <module>web3toolsoft-commons-spring</module>
         <module>web3toolsoft-commons-users</module>

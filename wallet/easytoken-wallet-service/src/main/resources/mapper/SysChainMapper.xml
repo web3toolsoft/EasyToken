@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.SysChainMapper">
+
+    <resultMap id="BaseResultMap" type="generator.domain.SysChain">
+            <id property="id" column="id" jdbcType="OTHER"/>
+            <result property="parentId" column="parent_id" jdbcType="INTEGER"/>
+            <result property="code" column="code" jdbcType="VARCHAR"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="type" column="type" jdbcType="VARCHAR"/>
+            <result property="intervals" column="intervals" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="INTEGER"/>
+            <result property="confirmations" column="confirmations" jdbcType="INTEGER"/>
+            <result property="enableTrackFee" column="enable_track_fee" jdbcType="TINYINT"/>
+            <result property="specification" column="specification" jdbcType="VARCHAR"/>
+            <result property="blockUrl" column="block_url" jdbcType="VARCHAR"/>
+            <result property="txUrl" column="tx_url" jdbcType="VARCHAR"/>
+            <result property="txFeeUrl" column="tx_fee_url" jdbcType="VARCHAR"/>
+            <result property="properties" column="properties" jdbcType="VARCHAR"/>
+            <result property="memo" column="memo" jdbcType="VARCHAR"/>
+            <result property="createdAt" column="created_at" jdbcType="TIMESTAMP"/>
+            <result property="updatedAt" column="updated_at" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,parent_id,code,
+        name,type,intervals,
+        status,confirmations,enable_track_fee,
+        specification,block_url,tx_url,
+        tx_fee_url,properties,memo,
+        created_at,updated_at
+    </sql>
+</mapper>
