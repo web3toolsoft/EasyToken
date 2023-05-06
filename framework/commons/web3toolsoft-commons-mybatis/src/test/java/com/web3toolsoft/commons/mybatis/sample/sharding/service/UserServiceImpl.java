@@ -3,7 +3,7 @@ package com.web3toolsoft.commons.mybatis.sample.sharding.service;
 import com.web3toolsoft.commons.mybatis.sample.domain.User;
 import com.web3toolsoft.commons.mybatis.sample.domain.UserExample;
 import com.web3toolsoft.commons.mybatis.sample.repository.ShardingUserRepository;
-import com.web3toolsoft.commons.mybatis.sharding.service.AbstractCrudService;
+import com.web3toolsoft.commons.mybatis.service.AbstractCrudService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,6 +16,10 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl
         extends AbstractCrudService<ShardingUserRepository, User, UserExample, Integer>
         implements UserService {
+
+    public UserServiceImpl(final ShardingUserRepository shardingUserRepository) {
+        super(shardingUserRepository);
+    }
 
     @Override
     protected UserExample getPageExample(final String fieldName, final String keyword) {

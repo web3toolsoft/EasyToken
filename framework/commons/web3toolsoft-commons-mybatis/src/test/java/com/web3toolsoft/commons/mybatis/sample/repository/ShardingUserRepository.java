@@ -1,8 +1,8 @@
 package com.web3toolsoft.commons.mybatis.sample.repository;
 
+import com.web3toolsoft.commons.mybatis.data.CrudRepository;
 import com.web3toolsoft.commons.mybatis.sample.domain.User;
 import com.web3toolsoft.commons.mybatis.sample.domain.UserExample;
-import com.web3toolsoft.commons.mybatis.sharding.data.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**

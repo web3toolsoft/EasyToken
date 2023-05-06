@@ -8,12 +8,15 @@ import org.springframework.stereotype.Service;
 
 /**
  * @author Tom Deng
- *
  */
 @Service("UserService")
 public class UserServiceImpl
         extends AbstractCrudService<UserRepository, User, UserExample, Integer>
         implements UserService {
+
+    public UserServiceImpl(final UserRepository userRepository) {
+        super(userRepository);
+    }
 
     @Override
     protected UserExample getPageExample(final String fieldName, final String keyword) {

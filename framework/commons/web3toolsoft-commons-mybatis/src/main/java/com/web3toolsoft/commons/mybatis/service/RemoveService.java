@@ -1,5 +1,7 @@
 package com.web3toolsoft.commons.mybatis.service;
 
+import com.web3toolsoft.commons.mybatis.sharding.ShardTable;
+
 import java.util.List;
 
 /**
@@ -27,4 +29,25 @@ public interface RemoveService<T, U, K> {
      * @return
      */
     int removeIn(List<T> records);
+
+    /**
+     * @param id         id
+     * @param shardTable 分表对象
+     * @return 影响的记录数
+     */
+    int removeById(K id, ShardTable shardTable);
+
+    /**
+     * @param example    pojo记录
+     * @param shardTable 分表对象
+     * @return 影响的记录数
+     */
+    int removeByExample(U example, ShardTable shardTable);
+
+    /**
+     * @param records    pojo记录集
+     * @param shardTable 分表对象
+     * @return 影响的记录数
+     */
+    int removeIn(List<T> records, ShardTable shardTable);
 }

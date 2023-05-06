@@ -2,7 +2,7 @@ package com.web3toolsoft.commons.mybatis.sample.sharding.service;
 
 import com.web3toolsoft.commons.mybatis.sample.domain.User;
 import com.web3toolsoft.commons.mybatis.sample.domain.UserExample;
-import com.web3toolsoft.commons.mybatis.sharding.service.CrudService;
+import com.web3toolsoft.commons.mybatis.service.CrudService;
 
 /**
  * 分表(sharding)用户服务接口

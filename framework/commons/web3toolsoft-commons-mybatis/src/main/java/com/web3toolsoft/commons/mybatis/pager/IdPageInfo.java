@@ -18,8 +18,7 @@ public class IdPageInfo {
     private long totals;
 
     /**
-     * 默认为按表中的id字段,如果表中主键名称不"id"，
-     * 则需要指定名称{@link this#IdPageInfo(int, String)}
+     * 默认为按表中的id字段,如果表中主键名称不"id"，则需要指定名称
      * 默认按id从降序查询
      */
     public IdPageInfo() {

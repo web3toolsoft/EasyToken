@@ -1,6 +1,7 @@
 package com.web3toolsoft.commons.mybatis.data;
 
 import com.web3toolsoft.commons.mybatis.pager.IdPageInfo;
+import com.web3toolsoft.commons.mybatis.sharding.ShardTable;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -33,5 +34,25 @@ public interface IdPageRepository<T, U> {
      * @return 分页记录列表
      */
     List<T> selectByIdPager(@Param("pager") IdPageInfo pager, @Param("example") U example);
+
+    /**
+     * 获取当前分页查询的总记录数
+     *
+     * @param pager      {@link IdPageInfo}
+     * @param example    查询条件参数
+     * @param shardTable 分表对象
+     * @return 总记录数
+     */
+    Map<String, Long> countByIdPager(@Param("pager") IdPageInfo pager, @Param("example") U example, @Param("shardTable") ShardTable shardTable);
+
+    /**
+     * 分页查询
+     *
+     * @param pager      {@link IdPageInfo}
+     * @param example    查询条件参数
+     * @param shardTable 分表对象
+     * @return 分页记录列表
+     */
+    List<T> selectByIdPager(@Param("pager") IdPageInfo pager, @Param("example") U example, @Param("shardTable") ShardTable shardTable);
 
 }
