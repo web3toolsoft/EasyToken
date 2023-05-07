@@ -53,13 +53,15 @@ public class UserServiceTest extends BaseTest {
 
     @Test
     public void addWithIdTest() {
+        this.user.setId(8);
         this.userService.addWithId(this.user);
-        Assertions.assertThat(this.user.getId()).isEqualTo(3);
+        Assertions.assertThat(this.user.getId()).isEqualTo(8);
     }
 
     @Test
     public void addWithIdShardingTest() {
+        this.user.setId(9);
         this.userService.addWithId(this.user, ShardTable.builder().name("test_user").build());
-        Assertions.assertThat(this.user.getId()).isEqualTo(3);
+        Assertions.assertThat(this.user.getId()).isEqualTo(9);
     }
 }
