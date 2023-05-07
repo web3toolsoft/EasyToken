@@ -14,6 +14,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
+        <java.version>20</java.version>
         <mybatis.version>3.5.13</mybatis.version>
         <mybatis-spring.version>3.0.1</mybatis-spring.version>
         <mybatis-spring-boot-starter.version>3.0.1</mybatis-spring-boot-starter.version>
