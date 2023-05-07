@@ -32,8 +32,8 @@ public abstract class AbstractRemoveService<Dao extends DeleteRepository<Po, Exa
     }
 
     @Override
-    public int removeIn(final List<Po> records) {
-        return this.dao.deleteIn(records);
+    public int removeIn(final List<Type> ids) {
+        return this.dao.deleteIn(ids);
     }
 
     @Override
@@ -47,7 +47,7 @@ public abstract class AbstractRemoveService<Dao extends DeleteRepository<Po, Exa
     }
 
     @Override
-    public int removeIn(final List<Po> records, final ShardTable shardTable) {
-        return this.dao.deleteIn(records, shardTable);
+    public int removeIn(final List<Type> ids, final ShardTable shardTable) {
+        return this.dao.deleteIn(ids, shardTable);
     }
 }

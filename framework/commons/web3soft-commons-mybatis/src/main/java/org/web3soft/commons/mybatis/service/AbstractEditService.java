@@ -32,8 +32,8 @@ public abstract class AbstractEditService<Dao extends UpdateRepository<Po, Examp
     }
 
     @Override
-    public int batchEdit(final List<Po> records) {
-        return this.dao.batchUpdate(records);
+    public int batchEditById(final List<Po> records) {
+        return this.dao.batchUpdateById(records);
     }
 
     @Override
@@ -47,7 +47,7 @@ public abstract class AbstractEditService<Dao extends UpdateRepository<Po, Examp
     }
 
     @Override
-    public int batchEdit(final List<Po> records, final ShardTable shardTable) {
-        return this.dao.batchUpdate(records, shardTable);
+    public int batchEditById(final List<Po> records, final ShardTable shardTable) {
+        return this.dao.batchUpdateById(records, shardTable);
     }
 }

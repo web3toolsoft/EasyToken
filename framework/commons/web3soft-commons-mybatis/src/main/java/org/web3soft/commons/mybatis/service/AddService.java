@@ -43,6 +43,14 @@ public interface AddService<T> {
     int batchAddOnDuplicateKey(List<T> records);
 
     /**
+     * 使用mysql on duplicate key 语句插入与修改
+     *
+     * @param records
+     * @return
+     */
+    int batchAddWithIdOnDuplicateKey(List<T> records);
+
+    /**
      * @param record     pojo记录
      * @param shardTable 分表对象
      * @return 影响的记录数
@@ -78,4 +86,13 @@ public interface AddService<T> {
      * @return
      */
     int batchAddOnDuplicateKey(List<T> records, ShardTable shardTable);
+
+    /**
+     * 使用mysql on duplicate key 语句插入与修改
+     *
+     * @param records
+     * @param shardTable 分表对象
+     * @return
+     */
+    int batchAddWithIdOnDuplicateKey(List<T> records, ShardTable shardTable);
 }

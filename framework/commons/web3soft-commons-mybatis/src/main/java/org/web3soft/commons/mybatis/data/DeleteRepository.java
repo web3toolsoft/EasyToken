@@ -30,10 +30,10 @@ public interface DeleteRepository<T, U, K> {
     int deleteByExample(@Param("example") U example);
 
     /**
-     * @param records
+     * @param ids id列表
      * @return
      */
-    int deleteIn(@Param("records") List<T> records);
+    int deleteIn(@Param("ids") List<K> ids);
 
     /**
      * 根据主键删除记录
@@ -54,10 +54,10 @@ public interface DeleteRepository<T, U, K> {
     int deleteByExample(@Param("example") U example, @Param("shardTable") ShardTable shardTable);
 
     /**
-     * @param records    pojo记录集
+     * @param ids        id列表
      * @param shardTable 分表对象
      * @return 影响的记录数
      */
-    int deleteIn(@Param("records") List<T> records, @Param("shardTable") ShardTable shardTable);
+    int deleteIn(@Param("ids") List<K> ids, @Param("shardTable") ShardTable shardTable);
 }
 

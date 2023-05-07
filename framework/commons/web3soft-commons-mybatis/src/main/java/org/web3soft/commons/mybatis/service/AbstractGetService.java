@@ -1,9 +1,9 @@
 package org.web3soft.commons.mybatis.service;
 
+import org.apache.commons.lang3.StringUtils;
 import org.web3soft.commons.mybatis.data.SelectRepository;
 import org.web3soft.commons.mybatis.pager.PageInfo;
 import org.web3soft.commons.mybatis.sharding.ShardTable;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -51,8 +51,8 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
-    public List<Po> getIn(final List<Po> records) {
-        return this.dao.selectIn(records);
+    public List<Po> getIn(final List<Type> ids) {
+        return this.dao.selectIn(ids);
     }
 
     @Override
@@ -103,8 +103,8 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
-    public List<Po> getIn(final List<Po> records, final ShardTable shardTable) {
-        return this.dao.selectIn(records, shardTable);
+    public List<Po> getIn(final List<Type> ids, final ShardTable shardTable) {
+        return this.dao.selectIn(ids, shardTable);
     }
 
     @Override

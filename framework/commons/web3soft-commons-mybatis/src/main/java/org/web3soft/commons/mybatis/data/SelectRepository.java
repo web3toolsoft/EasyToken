@@ -39,10 +39,10 @@ public interface SelectRepository<T, U, K> {
     T selectOneByExample(@Param("example") U example);
 
     /**
-     * @param records
+     * @param ids id列表
      * @return
      */
-    List<T> selectIn(@Param("records") List<T> records);
+    List<T> selectIn(@Param("ids") List<K> ids);
 
     /**
      * 获取当前分页查询的总记录数
@@ -98,11 +98,11 @@ public interface SelectRepository<T, U, K> {
     T selectOneByExample(@Param("example") U example, @Param("shardTable") ShardTable shardTable);
 
     /**
-     * @param records    pojo记录集
+     * @param ids    id列表
      * @param shardTable 分表对象
      * @return
      */
-    List<T> selectIn(@Param("records") List<T> records, @Param("shardTable") ShardTable shardTable);
+    List<T> selectIn(@Param("ids") List<K> ids, @Param("shardTable") ShardTable shardTable);
 
     /**
      * 获取当前分页查询的总记录数

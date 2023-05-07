@@ -32,7 +32,7 @@ public interface EditService<T, U> {
      * @param records
      * @return 影响的记录数
      */
-    int batchEdit(List<T> records);
+    int batchEditById(List<T> records);
 
     /**
      * 根据主键更新用户信息
@@ -58,5 +58,5 @@ public interface EditService<T, U> {
      * @param shardTable 分表对象
      * @return 影响的记录数
      */
-    int batchEdit(List<T> records, ShardTable shardTable);
+    int batchEditById(List<T> records, ShardTable shardTable);
 }

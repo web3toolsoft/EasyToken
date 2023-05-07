@@ -48,6 +48,11 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     }
 
     @Override
+    public int batchAddWithIdOnDuplicateKey(final List<Po> records) {
+        return this.dao.batchInsertWithIdOnDuplicateKey(records);
+    }
+
+    @Override
     public int editById(final Po record) {
         return this.dao.updateById(record);
     }
@@ -58,8 +63,8 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     }
 
     @Override
-    public int batchEdit(final List<Po> records) {
-        return this.dao.batchUpdate(records);
+    public int batchEditById(final List<Po> records) {
+        return this.dao.batchUpdateById(records);
     }
 
     @Override
@@ -73,8 +78,8 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     }
 
     @Override
-    public int removeIn(final List<Po> records) {
-        return this.dao.deleteIn(records);
+    public int removeIn(final List<Type> ids) {
+        return this.dao.deleteIn(ids);
     }
 
     @Override
@@ -96,10 +101,15 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     public int batchAddWithId(final List<Po> records, final ShardTable shardTable) {
         return this.dao.batchInsertWithId(records, shardTable);
     }
-    
+
     @Override
     public int batchAddOnDuplicateKey(final List<Po> records, final ShardTable shardTable) {
         return this.dao.batchInsertOnDuplicateKey(records, shardTable);
+    }
+
+    @Override
+    public int batchAddWithIdOnDuplicateKey(final List<Po> records, final ShardTable shardTable) {
+        return this.dao.batchInsertWithIdOnDuplicateKey(records, shardTable);
     }
 
     @Override
@@ -113,8 +123,8 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     }
 
     @Override
-    public int batchEdit(final List<Po> records, final ShardTable shardTable) {
-        return this.dao.batchUpdate(records, shardTable);
+    public int batchEditById(final List<Po> records, final ShardTable shardTable) {
+        return this.dao.batchUpdateById(records, shardTable);
     }
 
     @Override
@@ -128,7 +138,7 @@ public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example
     }
 
     @Override
-    public int removeIn(final List<Po> records, final ShardTable shardTable) {
-        return this.dao.deleteIn(records, shardTable);
+    public int removeIn(final List<Type> ids, final ShardTable shardTable) {
+        return this.dao.deleteIn(ids, shardTable);
     }
 }

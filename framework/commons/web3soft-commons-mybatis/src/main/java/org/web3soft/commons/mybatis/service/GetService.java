@@ -53,10 +53,10 @@ public interface GetService<T, U, K> {
     /**
      * select in() 查询
      *
-     * @param records
+     * @param ids
      * @return
      */
-    List<T> getIn(List<T> records);
+    List<T> getIn(List<K> ids);
 
     /**
      * 分页查询
@@ -129,11 +129,11 @@ public interface GetService<T, U, K> {
     /**
      * select in() 查询
      *
-     * @param records
+     * @param ids
      * @param shardTable 分表对象
      * @return 记录列表
      */
-    List<T> getIn(List<T> records, ShardTable shardTable);
+    List<T> getIn(List<K> ids, ShardTable shardTable);
 
     /**
      * 分页查询

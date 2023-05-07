@@ -49,13 +49,13 @@
     <sql id="Table_Name">
         test_user
     </sql>
-    <sql id="Base_Column_List_Without_Id">
+    <sql id="Base_Column_List">
         roles
         ,account ,password ,salt ,name ,email ,telephone ,status ,comment ,gmt_created ,gmt_modified
     </sql>
-    <sql id="Base_Column_List">
+    <sql id="Base_Column_List_WithId">
         id ,
-        <include refid="Base_Column_List_Without_Id"/>
+        <include refid="Base_Column_List"/>
     </sql>
     <sql id="Insert_Columns">
         <if test="record.roles != null">roles,</if>
@@ -70,7 +70,7 @@
         <if test="record.gmtCreated != null">gmt_created,</if>
         <if test="record.gmtModified != null">gmt_modified,</if>
     </sql>
-    <sql id="Insert_WithId_Columns">
+    <sql id="Insert_Columns_WithId">
         <if test="record.id != null">id,</if>
         <include refid="Insert_Columns"/>
     </sql>
@@ -87,7 +87,7 @@
         <if test="record.gmtCreated != null">#{record.gmtCreated,jdbcType=TIMESTAMP},</if>
         <if test="record.gmtModified != null">#{record.gmtModified,jdbcType=TIMESTAMP},</if>
     </sql>
-    <sql id="Insert_WithId_Values">
+    <sql id="Insert_Values_WithId">
         <if test="record.id != null">#{record.id,jdbcType=INTEGER},</if>
         <include refid="Insert_Values"/>
     </sql>
@@ -105,7 +105,7 @@
         #{record.gmtCreated,jdbcType=TIMESTAMP},
         #{record.gmtModified,jdbcType=TIMESTAMP},
     </sql>
-    <sql id="Batch_Insert_WithId_Values">
+    <sql id="Batch_Insert_Values_WithId">
         #{record.id,jdbcType=INTEGER},
         <include refid="Batch_Insert_Values"/>
     </sql>
@@ -121,6 +121,18 @@
         <if test="record.comment != null">comment = #{record.comment,jdbcType=VARCHAR} ,</if>
         <if test="record.gmtCreated != null">gmt_created = #{record.gmtCreated,jdbcType=TIMESTAMP} ,</if>
         <if test="record.gmtModified != null">gmt_modified = #{record.gmtModified,jdbcType=TIMESTAMP} ,</if>
+    </sql>
+    <sql id="On_Duplicate_Key_Update">
+        ON DUPLICATE KEY
+        UPDATE
+            roles =
+        VALUES (roles), account =
+        VALUES (account), password =
+        VALUES (password), name =
+        VALUES (name), email =
+        VALUES (email), telephone =
+        VALUES (telephone), status =
+        VALUES (status)
     </sql>
     <!-- insert -->
     <insert id="insert" parameterType="java.util.Map">
@@ -140,17 +152,17 @@
         insert into
         <include refid="Table_Name"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <include refid="Insert_WithId_Columns"/>
+            <include refid="Insert_Columns_WithId"/>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <include refid="Insert_WithId_Values"/>
+            <include refid="Insert_Values_WithId"/>
         </trim>
     </insert>
     <insert id="batchInsert" parameterType="java.util.Map">
         insert into
         <include refid="Table_Name"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <include refid="Base_Column_List_Without_Id"/>
+            <include refid="Base_Column_List"/>
         </trim>
         values
         <foreach collection="records" item="record" index="index" separator=",">
@@ -163,14 +175,42 @@
         insert into
         <include refid="Table_Name"/>
         <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Base_Column_List_WithId"/>
+        </trim>
+        values
+        <foreach collection="records" item="record" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <include refid="Batch_Insert_Values_WithId"/>
+            </trim>
+        </foreach>
+    </insert>
+    <insert id="batchInsertOnDuplicateKey" parameterType="java.util.Map">
+        insert into
+        <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
             <include refid="Base_Column_List"/>
         </trim>
         values
         <foreach collection="records" item="record" index="index" separator=",">
             <trim prefix="(" suffix=")" suffixOverrides=",">
-                <include refid="Batch_Insert_WithId_Values"/>
+                <include refid="Batch_Insert_Values"/>
             </trim>
         </foreach>
+        <include refid="On_Duplicate_Key_Update"/>
+    </insert>
+    <insert id="batchInsertWithIdOnDuplicateKey" parameterType="java.util.Map">
+        insert into
+        <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <include refid="Base_Column_List_WithId"/>
+        </trim>
+        values
+        <foreach collection="records" item="record" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <include refid="Batch_Insert_Values_WithId"/>
+            </trim>
+        </foreach>
+        <include refid="On_Duplicate_Key_Update"/>
     </insert>
     <!-- end insert -->
     <!-- delete -->
@@ -191,8 +231,8 @@
         delete from
         <include refid="Table_Name"/>
         where id in
-        <foreach collection="records" item="record" index="index" open="(" separator="," close=")">
-            #{record.id,jdbcType=INTEGER}
+        <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">
+            #{id,jdbcType=INTEGER}
         </foreach>
     </delete>
     <!-- end delete -->
@@ -215,7 +255,7 @@
             <include refid="Example_Where_Clause"/>
         </if>
     </update>
-    <update id="batchUpdate" parameterType="java.util.Map">
+    <update id="batchUpdateById" parameterType="java.util.Map">
         <foreach collection="records" item="record" index="index" open="" close="" separator=";">
             update
             <include refid="Table_Name"/>
@@ -229,7 +269,7 @@
     <!-- select -->
     <select id="selectById" resultMap="UserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List_WithId"/>
         from
         <include refid="Table_Name"/>
         where id = #{id,jdbcType=INTEGER}
@@ -239,7 +279,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List_WithId"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -251,7 +291,7 @@
     </select>
     <select id="selectOneByExample" resultMap="UserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List_WithId"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -261,12 +301,12 @@
     </select>
     <select id="selectIn" resultMap="UserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List_WithId"/>
         from
         <include refid="Table_Name"/>
         where id IN
-        <foreach collection="records" item="record" index="index" open="(" separator="," close=")">
-            #{record.id,jdbcType=INTEGER}
+        <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">
+            #{id,jdbcType=INTEGER}
         </foreach>
     </select>
     <select id="countByExample" resultType="java.lang.Integer" parameterType="java.util.Map">
@@ -285,7 +325,7 @@
     </select>
     <select id="selectByPager" resultMap="UserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List_WithId"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">

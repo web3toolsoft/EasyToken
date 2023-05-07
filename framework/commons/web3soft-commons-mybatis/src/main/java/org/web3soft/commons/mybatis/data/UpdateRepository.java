@@ -33,7 +33,7 @@ public interface UpdateRepository<T, U> {
      * @param records
      * @return 影响的记录数
      */
-    int batchUpdate(@Param("records") List<T> records);
+    int batchUpdateById(@Param("records") List<T> records);
 
     /**
      * 根据主键更新用户信息
@@ -60,5 +60,5 @@ public interface UpdateRepository<T, U> {
      * @param shardTable 分表对象
      * @return 影响的记录数
      */
-    int batchUpdate(@Param("records") List<T> records, @Param("shardTable") ShardTable shardTable);
+    int batchUpdateById(@Param("records") List<T> records, @Param("shardTable") ShardTable shardTable);
 }

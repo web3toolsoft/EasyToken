@@ -25,10 +25,10 @@ public interface RemoveService<T, U, K> {
     int removeByExample(U example);
 
     /**
-     * @param records
+     * @param ids
      * @return
      */
-    int removeIn(List<T> records);
+    int removeIn(List<K> ids);
 
     /**
      * @param id         id
@@ -45,9 +45,9 @@ public interface RemoveService<T, U, K> {
     int removeByExample(U example, ShardTable shardTable);
 
     /**
-     * @param records    pojo记录集
+     * @param ids        id列表
      * @param shardTable 分表对象
      * @return 影响的记录数
      */
-    int removeIn(List<T> records, ShardTable shardTable);
+    int removeIn(List<K> ids, ShardTable shardTable);
 }
