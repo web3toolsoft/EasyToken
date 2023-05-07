@@ -3,23 +3,23 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <groupId>com.web3toolsoft.spring.boot</groupId>
-        <artifactId>web3toolsoft-spring-boot-dependencies</artifactId>
+        <groupId>org.web3soft.spring.boot</groupId>
+        <artifactId>web3soft-spring-boot-dependencies</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.web3toolsoft.commons</groupId>
-    <artifactId>web3toolsoft-commons</artifactId>
+    <groupId>org.web3soft.commons</groupId>
+    <artifactId>web3soft-commons</artifactId>
     <packaging>pom</packaging>
-    <description>web3toolsoft common components</description>
+    <description>web3soft common components</description>
     <modules>
-        <module>web3toolsoft-commons-lang</module>
-        <module>web3toolsoft-commons-mybatis</module>
-        <module>web3toolsoft-commons-i18n</module>
-        <module>web3toolsoft-commons-ratelimiter</module>
-        <module>web3toolsoft-commons-security</module>
-        <module>web3toolsoft-commons-spring</module>
-        <module>web3toolsoft-commons-users</module>
+        <module>web3soft-commons-lang</module>
+        <module>web3soft-commons-mybatis</module>
+        <module>web3soft-commons-i18n</module>
+        <module>web3soft-commons-ratelimiter</module>
+        <module>web3soft-commons-security</module>
+        <module>web3soft-commons-spring</module>
+        <module>web3soft-commons-users</module>
     </modules>
     <build>
         <plugins>

@@ -1,4 +1,4 @@
-package com.web3toolsoft.easytoken.utils;
+package org.web3soft.easytoken.utils;
 
 public class BaseTest {
 }

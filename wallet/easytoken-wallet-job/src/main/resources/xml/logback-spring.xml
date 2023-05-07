@@ -6,7 +6,7 @@
     <springProperty scope="context" name="LOGGING_LEVEL_EASYTOKEN" source="logging.level.easytoken"/>
     <springProperty scope="context" name="LOGGING_LEVEL_MYBATIS" source="logging.level.mybatis"/>
     <springProperty scope="context" name="LOGGING_LEVEL_COMMONS" source="logging.level.commons"/>
-    <springProperty scope="context" name="web3toolsoft_APP_ENV_NAME" source="web3toolsoft.app.env.name"/>
+    <springProperty scope="context" name="web3soft_APP_ENV_NAME" source="web3soft.app.env.name"/>
     <!-- Output full logs to file -->
     <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOGGING_PATH}/info.log</file>
@@ -62,8 +62,8 @@
         <appender-ref ref="FILE_ERROR"/>
     </appender>
 
-    <logger name="com.web3toolsoft.easytoken" level="${LOGGING_LEVEL_EASYTOKEN}"/>
-    <logger name="com.web3toolsoft.commons" level="${LOGGING_LEVEL_COMMONS}"/>
+    <logger name="org.web3soft.easytoken" level="${LOGGING_LEVEL_EASYTOKEN}"/>
+    <logger name="org.web3soft.commons" level="${LOGGING_LEVEL_COMMONS}"/>
     <logger name="org.mybatis" level="${LOGGING_LEVEL_MYBATIS}"/>
 
     <root level="${LOGGING_LEVEL_DEFAULT}">
