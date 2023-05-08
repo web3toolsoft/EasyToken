@@ -108,7 +108,4 @@ public abstract class AbstractCrudIdPageService<Dao extends CrudIdPageRepository
         }
         return this.dao.selectByIdPager(pageInfo, example, shardTable);
     }
-
-
-    protected abstract Example getIdPageExample(IdPageInfo pageInfo, Example example);
 }

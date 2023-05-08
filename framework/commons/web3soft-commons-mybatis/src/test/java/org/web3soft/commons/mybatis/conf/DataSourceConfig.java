@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = DataSourceConfig.PACKAGE, sqlSessionFactoryRef = "sqlSessionFactory")
 public class DataSourceConfig extends AbstractDataSourceConfig {
     static final String PACKAGE = "org.web3soft.commons.mybatis.sample.repository";
-    static final String MAPPER_LOCATION = "classpath*:mybatis/UserMapper.xml";
+    static final String MAPPER_LOCATION = "classpath*:mybatis/*UserMapper.xml";
 
     private final DataSource dataSource;
 

@@ -9,6 +9,7 @@ import org.web3soft.commons.mybatis.pager.PageInfo;
 import org.web3soft.commons.mybatis.sample.domain.User;
 import org.web3soft.commons.mybatis.sample.example.UserExample;
 import org.web3soft.commons.mybatis.sample.service.UserService;
+import org.web3soft.commons.mybatis.sharding.ShardTable;
 
 import java.util.Date;
 import java.util.List;
@@ -20,11 +21,12 @@ import java.util.stream.IntStream;
  *
  * @author Tom Deng
  */
-public class UserServiceTest extends BaseTest {
+public class ShardUserServiceTest extends BaseTest {
 
-    @Resource(name = "userService")
+    @Resource(name = "shardUserService")
     private UserService userService;
     private User user;
+    private ShardTable shardTable;
 
     @BeforeEach
     public void before() {
@@ -42,12 +44,15 @@ public class UserServiceTest extends BaseTest {
                 .gmtCreated(new Date())
                 .gmtModified(new Date())
                 .build();
-        this.userService.removeByExample(null);
+        this.shardTable = ShardTable.builder()
+                .name("test_user")
+                .build();
+        this.userService.removeByExample(null, this.shardTable);
     }
 
     private void initRecords() {
         final List<User> records = this.getRecords(10, true);
-        this.userService.batchAddWithId(records);
+        this.userService.batchAddWithId(records, this.shardTable);
     }
 
     private List<User> getRecords(final int count, final boolean isWithId) {
@@ -70,57 +75,57 @@ public class UserServiceTest extends BaseTest {
     }
 
     @Test
-    void add() {
-        this.userService.add(this.user);
+    void shardAdd() {
+        this.userService.add(this.user, this.shardTable);
         Assertions.assertThat(this.user.getId()).isEqualTo(1);
     }
 
     @Test
-    void addWithId() {
-        this.userService.addWithId(this.user);
+    void shardAddWithId() {
+        this.userService.addWithId(this.user, this.shardTable);
         Assertions.assertThat(this.user.getId()).isEqualTo(1);
     }
 
     @Test
-    void batchAdd() {
-        final int effectRows = this.userService.batchAddWithId(this.getRecords(100, false));
+    void shardBatchAdd() {
+        final int effectRows = this.userService.batchAdd(this.getRecords(100, false), this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(100);
     }
 
     @Test
-    void batchAddWithId() {
-        final int effectRows = this.userService.batchAddWithId(this.getRecords(100, true));
+    void shardBatchAddWithId() {
+        final int effectRows = this.userService.batchAddWithId(this.getRecords(100, true), this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(100);
     }
 
     @Test
-    void batchAddOnDuplicateKey() {
-        this.userService.add(this.user);
+    void shardBatchAddOnDuplicateKey() {
+        this.userService.add(this.user, this.shardTable);
         this.user.setName("web3ts.com_duplicate_key");
-        final int effectRows = this.userService.batchAddOnDuplicateKey(List.of(this.user));
+        final int effectRows = this.userService.batchAddOnDuplicateKey(List.of(this.user), this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
     }
 
     @Test
-    void batchAddWithIdOnDuplicateKey() {
-        this.userService.addWithId(this.user);
+    void shardBatchAddWithIdOnDuplicateKey() {
+        this.userService.addWithId(this.user, this.shardTable);
         this.user.setName("web3ts.com_duplicate_key");
-        final int effectRows = this.userService.batchAddWithIdOnDuplicateKey(List.of(this.user));
+        final int effectRows = this.userService.batchAddWithIdOnDuplicateKey(List.of(this.user), this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
     }
 
     @Test
-    void editById() {
-        this.userService.addWithId(this.user);
+    void shardEditById() {
+        this.userService.addWithId(this.user, this.shardTable);
         this.user.setName("web3ts.com_edit_by_id");
         this.user.setEmail("test@web3soft.com_edit_by_id");
-        final int effectRows = this.userService.editById(this.user);
+        final int effectRows = this.userService.editById(this.user, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
     }
 
     @Test
-    void editByExample() {
-        this.userService.addWithId(this.user);
+    void shardEditByExample() {
+        this.userService.addWithId(this.user, this.shardTable);
         this.user.setName("web3ts.com_edit_by_example");
         this.user.setEmail("test@web3soft.com_edit_by_example");
 
@@ -128,125 +133,126 @@ public class UserServiceTest extends BaseTest {
         example.createCriteria()
                 .andAccountEqualTo(this.user.getAccount());
 
-        final int effectRows = this.userService.editByExample(this.user, example);
+        final int effectRows = this.userService.editByExample(this.user, example, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
     }
 
     @Test
-    void batchEditById() {
+    void shardBatchEditById() {
         //set jdbc-url:allowMultiQueries=true
         final List<User> records = this.getRecords(10, true);
-        this.userService.batchAddWithId(records);
+        this.userService.batchAddWithId(records, this.shardTable);
         records.forEach(x -> x.setName("web3ts.com_batch_edit_by_id"));
-        final int effectRows = this.userService.batchEditById(records);
+        final int effectRows = this.userService.batchEditById(records, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
     }
 
     @Test
-    void removeById() {
+    void shardRemoveById() {
         this.initRecords();
-        final int effectRows = this.userService.removeById(1);
-        final User user1 = this.userService.getById(1);
+        final int effectRows = this.userService.removeById(1, this.shardTable);
+        final User user1 = this.userService.getById(1, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(1);
         Assertions.assertThat(user1).isNull();
     }
 
     @Test
-    void removeByExample() {
+    void shardRemoveByExample() {
         this.initRecords();
 
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdGreaterThan(5);
-        final int effectRows = this.userService.removeByExample(example);
-        final User user1 = this.userService.getById(6);
+        final int effectRows = this.userService.removeByExample(example, this.shardTable);
+        final User user1 = this.userService.getById(6, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(5);
         Assertions.assertThat(user1).isNull();
     }
 
     @Test
-    void removeIn() {
+    void shardRemoveIn() {
         this.initRecords();
 
-        final int effectRows = this.userService.removeIn(List.of(1, 2, 3, 4, 5));
-        final User user1 = this.userService.getById(1);
+        final int effectRows = this.userService.removeIn(List.of(1, 2, 3, 4, 5), this.shardTable);
+        final User user1 = this.userService.getById(1, this.shardTable);
         Assertions.assertThat(effectRows).isEqualTo(5);
         Assertions.assertThat(user1).isNull();
     }
 
+
     @Test
-    void exists() {
+    void shardExists() {
         this.initRecords();
 
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdEqualTo(6);
-        final boolean exists = this.userService.exists(example);
+        final boolean exists = this.userService.exists(example, this.shardTable);
         Assertions.assertThat(exists).isTrue();
     }
 
     @Test
-    void getById() {
+    void shardGetById() {
         this.initRecords();
-        final User user1 = this.userService.getById(6);
+        final User user1 = this.userService.getById(6, this.shardTable);
         Assertions.assertThat(user1.getId()).isEqualTo(6);
     }
 
     @Test
-    void getByExample() {
+    void shardGetByExample() {
         this.initRecords();
 
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdGreaterThan(6);
-        final List<User> users = this.userService.getByExample(example);
+        final List<User> users = this.userService.getByExample(example, this.shardTable);
         Assertions.assertThat(users.size()).isEqualTo(4);
     }
 
     @Test
-    void getAll() {
+    void shardGetAll() {
         this.initRecords();
-        final List<User> users = this.userService.getAll();
+        final List<User> users = this.userService.getAll(this.shardTable);
         Assertions.assertThat(users.size()).isEqualTo(10);
     }
 
     @Test
-    void getOneByExample() {
+    void shardGetOneByExample() {
         this.initRecords();
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdEqualTo(6);
-        final User user1 = this.userService.getOneByExample(example);
+        final User user1 = this.userService.getOneByExample(example, this.shardTable);
         Assertions.assertThat(user1.getId()).isEqualTo(6);
     }
 
     @Test
-    void getIn() {
+    void shardGetIn() {
         this.initRecords();
-        final List<User> users = this.userService.getIn(List.of(1, 2, 3, 4, 5));
+        final List<User> users = this.userService.getIn(List.of(1, 2, 3, 4, 5), this.shardTable);
         Assertions.assertThat(users.size()).isEqualTo(5);
     }
 
     @Test
-    void getByPage() {
+    void shardGetByPage() {
         final List<User> records = this.getRecords(100, true);
-        this.userService.batchAddWithId(records);
+        this.userService.batchAddWithId(records, this.shardTable);
         final PageInfo pageInfo = new PageInfo();
-        final List<User> users = this.userService.getByPage(pageInfo);
+        final List<User> users = this.userService.getByPage(pageInfo, this.shardTable);
         Assertions.assertThat(pageInfo.getTotals()).isEqualTo(100);
         Assertions.assertThat(users.size()).isEqualTo(50);
     }
 
     @Test
-    void getByPage2() {
+    void shardGetByPage2() {
         final List<User> records = this.getRecords(100, true);
-        this.userService.batchAddWithId(records);
+        this.userService.batchAddWithId(records, this.shardTable);
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdGreaterThan(10);
 
         final PageInfo pageInfo = new PageInfo();
-        final List<User> users = this.userService.getByPage(pageInfo, example);
+        final List<User> users = this.userService.getByPage(pageInfo, example, this.shardTable);
         Assertions.assertThat(pageInfo.getTotals()).isEqualTo(90);
         Assertions.assertThat(users.size()).isEqualTo(50);
     }
