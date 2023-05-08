@@ -336,6 +336,26 @@
         </if>
         limit #{pager.startIndex} , #{pager.pageSize}
     </select>
+    <select id="countByIdPager" resultType="java.util.Map" parameterType="java.util.Map">
+        select convert(max(${pager.sortItem}), SIGNED) maxId,convert(min(${pager.sortItem}), SIGNED) minId,count(*) total from
+        <include refid="Table_Name"/>
+        <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+    </select>
+    <select id="selectByIdPager" resultMap="UserMap" parameterType="java.util.Map">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        <include refid="Table_Name"/>
+        <if test="example != null">
+            <include refid="Example_Where_Clause"/>
+        </if>
+        <if test="pager.sortItem != null and pager.sortItem != '' ">
+            order by ${pager.sortItem} ${pager.sortType}
+        </if>
+        limit #{pager.pageSize}
+    </select>
     <!-- end select -->
     <!-- My Custom Interfaces -->
 </mapper>
