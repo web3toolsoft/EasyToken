@@ -45,7 +45,7 @@ public class ShardUserServiceTest extends BaseTest {
                 .gmtModified(new Date())
                 .build();
         this.shardTable = ShardTable.builder()
-                .name("test_user")
+                .name("test_user_01")
                 .build();
         this.userService.removeByExample(null, this.shardTable);
     }
@@ -178,7 +178,6 @@ public class ShardUserServiceTest extends BaseTest {
         Assertions.assertThat(effectRows).isEqualTo(5);
         Assertions.assertThat(user1).isNull();
     }
-
 
     @Test
     void shardExists() {
