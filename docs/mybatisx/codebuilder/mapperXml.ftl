@@ -7,7 +7,8 @@
             <id column="${field.columnName}" property="${field.fieldName}" jdbcType="${field.jdbcType}"/>
             <#assign pkFieldName = field.fieldName />
             <#assign pkColumnName = field.columnName />
-            <#assign pkJdbcType =field.jdbcType />
+            <#assign pkJdbcType = field.jdbcType />
+            <#assign pkFullTypeName = field.fullTypeName />
         </#list>
         <#list tableClass.baseFields as field>
             <result column="${field.columnName}" property="${field.fieldName}" jdbcType="${field.jdbcType}"/>
@@ -96,7 +97,7 @@
     </sql>
     <!-- insert -->
     <insert id="insert" parameterType="java.util.Map">
-        <selectKey resultType="java.lang.Integer" keyProperty="record.id" order="AFTER">
+        <selectKey resultType="${pkFullTypeName}" keyProperty="record.id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
         insert into
