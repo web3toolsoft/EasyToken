@@ -103,7 +103,7 @@ public class ShardUserServiceTest extends BaseTest {
         this.userService.add(this.user, this.shardTable);
         this.user.setName("web3ts.com_duplicate_key");
         final int effectRows = this.userService.batchAddOnDuplicateKey(List.of(this.user), this.shardTable);
-        Assertions.assertThat(effectRows).isEqualTo(1);
+        Assertions.assertThat(effectRows).isEqualTo(2);
     }
 
     @Test
@@ -111,7 +111,7 @@ public class ShardUserServiceTest extends BaseTest {
         this.userService.addWithId(this.user, this.shardTable);
         this.user.setName("web3ts.com_duplicate_key");
         final int effectRows = this.userService.batchAddWithIdOnDuplicateKey(List.of(this.user), this.shardTable);
-        Assertions.assertThat(effectRows).isEqualTo(1);
+        Assertions.assertThat(effectRows).isEqualTo(2);
     }
 
     @Test

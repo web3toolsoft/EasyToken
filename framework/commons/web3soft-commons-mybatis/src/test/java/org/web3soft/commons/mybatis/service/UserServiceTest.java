@@ -98,7 +98,7 @@ public class UserServiceTest extends BaseTest {
         this.userService.add(this.user);
         this.user.setName("web3ts.com_duplicate_key");
         final int effectRows = this.userService.batchAddOnDuplicateKey(List.of(this.user));
-        Assertions.assertThat(effectRows).isEqualTo(1);
+        Assertions.assertThat(effectRows).isEqualTo(2);
     }
 
     @Test
@@ -106,7 +106,7 @@ public class UserServiceTest extends BaseTest {
         this.userService.addWithId(this.user);
         this.user.setName("web3ts.com_duplicate_key");
         final int effectRows = this.userService.batchAddWithIdOnDuplicateKey(List.of(this.user));
-        Assertions.assertThat(effectRows).isEqualTo(1);
+        Assertions.assertThat(effectRows).isEqualTo(2);
     }
 
     @Test
