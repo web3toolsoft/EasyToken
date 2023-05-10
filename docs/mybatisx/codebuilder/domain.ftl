@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
-* 针对表【${tableClass.tableName}<#if tableClass.remark?has_content>(${tableClass.remark!})</#if>】的数据库访问操作
+* 针对表【${tableClass.tableName}<#if tableClass.remark?has_content>(${tableClass.remark!})</#if>】的实体类
 * @author ${author!}
 * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */

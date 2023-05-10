@@ -12,11 +12,11 @@ import org.web3soft.commons.mybatis.data.CrudRepository;
     <#assign pkShortTypeName = field.shortTypeName />
 </#list>
 /**
-* 针对表【${tableClass.tableName}<#if tableClass.remark?has_content>(${tableClass.remark!})</#if>】的实体类
+* 针对表【${tableClass.tableName}<#if tableClass.remark?has_content>(${tableClass.remark!})</#if>】的数据库访问操作
 * @author ${author!}
 * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */
 @Repository
 public interface ${repository.fileName}
-        extends CrudRepository<${tableClass.shortClassName}, ${tableClass.shortClassName}Example, ${pkShortTypeName}>  {
+extends CrudRepository<${tableClass.shortClassName}, ${tableClass.shortClassName}Example, ${pkShortTypeName}>  {
 }
