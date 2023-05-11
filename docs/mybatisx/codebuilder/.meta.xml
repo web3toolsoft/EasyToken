@@ -23,7 +23,7 @@
         <property name="configFile" value="repository.ftl"/>
         <property name="fileName" value="${domain.fileName}Repository"/>
         <property name="suffix" value=".java"/>
-        <property name="packageName" value="${domain.basePackage}.data"/>
+        <property name="packageName" value="${domain.basePackage}.data.repository"/>
         <property name="encoding" value="${domain.encoding}"/>
         <property name="basePath" value="${domain.basePath}"/>
     </template>
@@ -32,7 +32,7 @@
         <property name="configFile" value="example.ftl"/>
         <property name="fileName" value="${domain.fileName}Example"/>
         <property name="suffix" value=".java"/>
-        <property name="packageName" value="${domain.basePackage}.example"/>
+        <property name="packageName" value="${domain.basePackage}.data.example"/>
         <property name="encoding" value="${domain.encoding}"/>
         <property name="basePath" value="${domain.basePath}"/>
     </template>
@@ -48,7 +48,7 @@
     <template>
         <property name="configName" value="shardMapperXml"/>
         <property name="configFile" value="shardMapperXml.ftl"/>
-        <property name="fileName" value="${domain.fileName}Mapper"/>
+        <property name="fileName" value="Shard${domain.fileName}Mapper"/>
         <property name="suffix" value=".xml"/>
         <property name="packageName" value="mapper"/>
         <property name="encoding" value="${domain.encoding}"/>
