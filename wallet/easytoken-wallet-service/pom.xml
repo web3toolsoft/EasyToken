@@ -11,6 +11,10 @@
     <artifactId>easytoken-wallet-service</artifactId>
     <dependencies>
         <dependency>
+            <groupId>org.web3soft.commons</groupId>
+            <artifactId>web3soft-commons-mybatis</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
