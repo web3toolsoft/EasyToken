@@ -1,23 +1,23 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_currency(币种表)】的查询条件example类
+ * 针对表【sys_token_standard(链上币种协议表)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:43
+ * @date 2023-05-10 21:52:54
  */
-public class SysCurrencyExample {
+public class SysTokenStandardExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysCurrencyExample() {
+    public SysTokenStandardExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -241,6 +241,66 @@ public class SysCurrencyExample {
             return (Criteria) this;
         }
 
+        public Criteria andChainIdIsNull() {
+            this.addCriterion("chain_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdIsNotNull() {
+            this.addCriterion("chain_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdEqualTo(final Integer value) {
+            this.addCriterion("chain_id =", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdNotEqualTo(final Integer value) {
+            this.addCriterion("chain_id <>", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdIn(final List<Integer> values) {
+            this.addCriterion("chain_id in", values, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdNotIn(final List<Integer> values) {
+            this.addCriterion("chain_id not in", values, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("chain_id between", value1, value2, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("chain_id not between", value1, value2, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdGreaterThan(final Integer value) {
+            this.addCriterion("chain_id >", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("chain_id >=", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdLessThan(final Integer value) {
+            this.addCriterion("chain_id <", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andChainIdLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("chain_id <=", value, "chainId");
+            return (Criteria) this;
+        }
+
         public Criteria andCodeIsNull() {
             this.addCriterion("code is null");
             return (Criteria) this;
@@ -282,246 +342,44 @@ public class SysCurrencyExample {
             return (Criteria) this;
         }
 
-        public Criteria andSymbolIsNull() {
-            this.addCriterion("symbol is null");
+        public Criteria andMemoIsNull() {
+            this.addCriterion("memo is null");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolIsNotNull() {
-            this.addCriterion("symbol is not null");
+        public Criteria andMemoIsNotNull() {
+            this.addCriterion("memo is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolEqualTo(final String value) {
-            this.addCriterion("symbol =", value, "symbol");
+        public Criteria andMemoEqualTo(final String value) {
+            this.addCriterion("memo =", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolNotEqualTo(final String value) {
-            this.addCriterion("symbol <>", value, "symbol");
+        public Criteria andMemoNotEqualTo(final String value) {
+            this.addCriterion("memo <>", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolIn(final List<String> values) {
-            this.addCriterion("symbol in", values, "symbol");
+        public Criteria andMemoIn(final List<String> values) {
+            this.addCriterion("memo in", values, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andSymbolNotIn(final List<String> values) {
-            this.addCriterion("symbol not in", values, "symbol");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andSymbolLike(final String value) {
-            this.addCriterion("symbol like", value, "symbol");
-            return (Criteria) this;
-        }
-
-        public Criteria andSymbolNotLike(final String value) {
-            this.addCriterion("symbol not like", value, "symbol");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameIsNull() {
-            this.addCriterion("name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameIsNotNull() {
-            this.addCriterion("name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameEqualTo(final String value) {
-            this.addCriterion("name =", value, "name");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameNotEqualTo(final String value) {
-            this.addCriterion("name <>", value, "name");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameIn(final List<String> values) {
-            this.addCriterion("name in", values, "name");
-            return (Criteria) this;
-        }
-
-        public Criteria andNameNotIn(final List<String> values) {
-            this.addCriterion("name not in", values, "name");
+        public Criteria andMemoNotIn(final List<String> values) {
+            this.addCriterion("memo not in", values, "memo");
             return (Criteria) this;
         }
 
 
-        public Criteria andNameLike(final String value) {
-            this.addCriterion("name like", value, "name");
+        public Criteria andMemoLike(final String value) {
+            this.addCriterion("memo like", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(final String value) {
-            this.addCriterion("name not like", value, "name");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIsNull() {
-            this.addCriterion("status is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIsNotNull() {
-            this.addCriterion("status is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusEqualTo(final Integer value) {
-            this.addCriterion("status =", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotEqualTo(final Integer value) {
-            this.addCriterion("status <>", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIn(final List<Integer> values) {
-            this.addCriterion("status in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotIn(final List<Integer> values) {
-            this.addCriterion("status not in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("status between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("status not between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThan(final Integer value) {
-            this.addCriterion("status >", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("status >=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThan(final Integer value) {
-            this.addCriterion("status <", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("status <=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNull() {
-            this.addCriterion("type is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIsNotNull() {
-            this.addCriterion("type is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeEqualTo(final Integer value) {
-            this.addCriterion("type =", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotEqualTo(final Integer value) {
-            this.addCriterion("type <>", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeIn(final List<Integer> values) {
-            this.addCriterion("type in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotIn(final List<Integer> values) {
-            this.addCriterion("type not in", values, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("type between", value1, value2, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("type not between", value1, value2, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThan(final Integer value) {
-            this.addCriterion("type >", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("type >=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThan(final Integer value) {
-            this.addCriterion("type <", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andTypeLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("type <=", value, "type");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlIsNull() {
-            this.addCriterion("logo_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlIsNotNull() {
-            this.addCriterion("logo_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlEqualTo(final String value) {
-            this.addCriterion("logo_url =", value, "logoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlNotEqualTo(final String value) {
-            this.addCriterion("logo_url <>", value, "logoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlIn(final List<String> values) {
-            this.addCriterion("logo_url in", values, "logoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlNotIn(final List<String> values) {
-            this.addCriterion("logo_url not in", values, "logoUrl");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andLogoUrlLike(final String value) {
-            this.addCriterion("logo_url like", value, "logoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andLogoUrlNotLike(final String value) {
-            this.addCriterion("logo_url not like", value, "logoUrl");
+        public Criteria andMemoNotLike(final String value) {
+            this.addCriterion("memo not like", value, "memo");
             return (Criteria) this;
         }
 

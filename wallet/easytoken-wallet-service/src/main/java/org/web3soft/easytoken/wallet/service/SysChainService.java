@@ -1,8 +1,8 @@
 package org.web3soft.easytoken.wallet.service;
 
 import org.web3soft.commons.mybatis.service.CrudService;
+import org.web3soft.easytoken.wallet.data.example.SysChainExample;
 import org.web3soft.easytoken.wallet.domain.SysChain;
-import org.web3soft.easytoken.wallet.example.SysChainExample;
 
 /**
  * 针对表【sys_chain(区块链网络表)】的业务逻辑接口

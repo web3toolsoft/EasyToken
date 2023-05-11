@@ -1,23 +1,23 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_chain(区块链网络表)】的查询条件example类
+ * 针对表【sys_server_node(钱包部署服务节点表)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:32
+ * @date 2023-05-10 21:52:46
  */
-public class SysChainExample {
+public class SysServerNodeExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysChainExample() {
+    public SysServerNodeExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -241,66 +241,6 @@ public class SysChainExample {
             return (Criteria) this;
         }
 
-        public Criteria andParentIdIsNull() {
-            this.addCriterion("parent_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdIsNotNull() {
-            this.addCriterion("parent_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdEqualTo(final Integer value) {
-            this.addCriterion("parent_id =", value, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdNotEqualTo(final Integer value) {
-            this.addCriterion("parent_id <>", value, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdIn(final List<Integer> values) {
-            this.addCriterion("parent_id in", values, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdNotIn(final List<Integer> values) {
-            this.addCriterion("parent_id not in", values, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("parent_id between", value1, value2, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("parent_id not between", value1, value2, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdGreaterThan(final Integer value) {
-            this.addCriterion("parent_id >", value, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("parent_id >=", value, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdLessThan(final Integer value) {
-            this.addCriterion("parent_id <", value, "parentId");
-            return (Criteria) this;
-        }
-
-        public Criteria andParentIdLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("parent_id <=", value, "parentId");
-            return (Criteria) this;
-        }
-
         public Criteria andCodeIsNull() {
             this.addCriterion("code is null");
             return (Criteria) this;
@@ -383,104 +323,464 @@ public class SysChainExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            this.addCriterion("type is null");
+        public Criteria andHostIsNull() {
+            this.addCriterion("host is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            this.addCriterion("type is not null");
+        public Criteria andHostIsNotNull() {
+            this.addCriterion("host is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(final String value) {
-            this.addCriterion("type =", value, "type");
+        public Criteria andHostEqualTo(final String value) {
+            this.addCriterion("host =", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(final String value) {
-            this.addCriterion("type <>", value, "type");
+        public Criteria andHostNotEqualTo(final String value) {
+            this.addCriterion("host <>", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(final List<String> values) {
-            this.addCriterion("type in", values, "type");
+        public Criteria andHostIn(final List<String> values) {
+            this.addCriterion("host in", values, "host");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(final List<String> values) {
-            this.addCriterion("type not in", values, "type");
+        public Criteria andHostNotIn(final List<String> values) {
+            this.addCriterion("host not in", values, "host");
             return (Criteria) this;
         }
 
 
-        public Criteria andTypeLike(final String value) {
-            this.addCriterion("type like", value, "type");
+        public Criteria andHostLike(final String value) {
+            this.addCriterion("host like", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotLike(final String value) {
-            this.addCriterion("type not like", value, "type");
+        public Criteria andHostNotLike(final String value) {
+            this.addCriterion("host not like", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsIsNull() {
-            this.addCriterion("intervals is null");
+        public Criteria andEnableDepositIsNull() {
+            this.addCriterion("enable_deposit is null");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsIsNotNull() {
-            this.addCriterion("intervals is not null");
+        public Criteria andEnableDepositIsNotNull() {
+            this.addCriterion("enable_deposit is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsEqualTo(final Integer value) {
-            this.addCriterion("intervals =", value, "intervals");
+        public Criteria andEnableDepositEqualTo(final Integer value) {
+            this.addCriterion("enable_deposit =", value, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsNotEqualTo(final Integer value) {
-            this.addCriterion("intervals <>", value, "intervals");
+        public Criteria andEnableDepositNotEqualTo(final Integer value) {
+            this.addCriterion("enable_deposit <>", value, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsIn(final List<Integer> values) {
-            this.addCriterion("intervals in", values, "intervals");
+        public Criteria andEnableDepositIn(final List<Integer> values) {
+            this.addCriterion("enable_deposit in", values, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsNotIn(final List<Integer> values) {
-            this.addCriterion("intervals not in", values, "intervals");
+        public Criteria andEnableDepositNotIn(final List<Integer> values) {
+            this.addCriterion("enable_deposit not in", values, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("intervals between", value1, value2, "intervals");
+        public Criteria andEnableDepositBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_deposit between", value1, value2, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("intervals not between", value1, value2, "intervals");
+        public Criteria andEnableDepositNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_deposit not between", value1, value2, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsGreaterThan(final Integer value) {
-            this.addCriterion("intervals >", value, "intervals");
+        public Criteria andEnableDepositGreaterThan(final Integer value) {
+            this.addCriterion("enable_deposit >", value, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("intervals >=", value, "intervals");
+        public Criteria andEnableDepositGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_deposit >=", value, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsLessThan(final Integer value) {
-            this.addCriterion("intervals <", value, "intervals");
+        public Criteria andEnableDepositLessThan(final Integer value) {
+            this.addCriterion("enable_deposit <", value, "enableDeposit");
             return (Criteria) this;
         }
 
-        public Criteria andIntervalsLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("intervals <=", value, "intervals");
+        public Criteria andEnableDepositLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_deposit <=", value, "enableDeposit");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateIsNull() {
+            this.addCriterion("enable_aggregate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateIsNotNull() {
+            this.addCriterion("enable_aggregate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateEqualTo(final Integer value) {
+            this.addCriterion("enable_aggregate =", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateNotEqualTo(final Integer value) {
+            this.addCriterion("enable_aggregate <>", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateIn(final List<Integer> values) {
+            this.addCriterion("enable_aggregate in", values, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateNotIn(final List<Integer> values) {
+            this.addCriterion("enable_aggregate not in", values, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_aggregate between", value1, value2, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_aggregate not between", value1, value2, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateGreaterThan(final Integer value) {
+            this.addCriterion("enable_aggregate >", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_aggregate >=", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateLessThan(final Integer value) {
+            this.addCriterion("enable_aggregate <", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableAggregateLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_aggregate <=", value, "enableAggregate");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawIsNull() {
+            this.addCriterion("enable_withdraw is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawIsNotNull() {
+            this.addCriterion("enable_withdraw is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawEqualTo(final Integer value) {
+            this.addCriterion("enable_withdraw =", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawNotEqualTo(final Integer value) {
+            this.addCriterion("enable_withdraw <>", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawIn(final List<Integer> values) {
+            this.addCriterion("enable_withdraw in", values, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawNotIn(final List<Integer> values) {
+            this.addCriterion("enable_withdraw not in", values, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_withdraw between", value1, value2, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_withdraw not between", value1, value2, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawGreaterThan(final Integer value) {
+            this.addCriterion("enable_withdraw >", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_withdraw >=", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawLessThan(final Integer value) {
+            this.addCriterion("enable_withdraw <", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableWithdrawLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_withdraw <=", value, "enableWithdraw");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignIsNull() {
+            this.addCriterion("enable_sign is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignIsNotNull() {
+            this.addCriterion("enable_sign is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignEqualTo(final Integer value) {
+            this.addCriterion("enable_sign =", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignNotEqualTo(final Integer value) {
+            this.addCriterion("enable_sign <>", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignIn(final List<Integer> values) {
+            this.addCriterion("enable_sign in", values, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignNotIn(final List<Integer> values) {
+            this.addCriterion("enable_sign not in", values, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_sign between", value1, value2, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_sign not between", value1, value2, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignGreaterThan(final Integer value) {
+            this.addCriterion("enable_sign >", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_sign >=", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignLessThan(final Integer value) {
+            this.addCriterion("enable_sign <", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableSignLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_sign <=", value, "enableSign");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatIsNull() {
+            this.addCriterion("enable_stat is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatIsNotNull() {
+            this.addCriterion("enable_stat is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatEqualTo(final Integer value) {
+            this.addCriterion("enable_stat =", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatNotEqualTo(final Integer value) {
+            this.addCriterion("enable_stat <>", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatIn(final List<Integer> values) {
+            this.addCriterion("enable_stat in", values, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatNotIn(final List<Integer> values) {
+            this.addCriterion("enable_stat not in", values, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_stat between", value1, value2, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_stat not between", value1, value2, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatGreaterThan(final Integer value) {
+            this.addCriterion("enable_stat >", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_stat >=", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatLessThan(final Integer value) {
+            this.addCriterion("enable_stat <", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableStatLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_stat <=", value, "enableStat");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerIsNull() {
+            this.addCriterion("enable_crawler is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerIsNotNull() {
+            this.addCriterion("enable_crawler is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerEqualTo(final Integer value) {
+            this.addCriterion("enable_crawler =", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerNotEqualTo(final Integer value) {
+            this.addCriterion("enable_crawler <>", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerIn(final List<Integer> values) {
+            this.addCriterion("enable_crawler in", values, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerNotIn(final List<Integer> values) {
+            this.addCriterion("enable_crawler not in", values, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_crawler between", value1, value2, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_crawler not between", value1, value2, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerGreaterThan(final Integer value) {
+            this.addCriterion("enable_crawler >", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_crawler >=", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerLessThan(final Integer value) {
+            this.addCriterion("enable_crawler <", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableCrawlerLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_crawler <=", value, "enableCrawler");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheIsNull() {
+            this.addCriterion("enable_reload_cache is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheIsNotNull() {
+            this.addCriterion("enable_reload_cache is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheEqualTo(final Integer value) {
+            this.addCriterion("enable_reload_cache =", value, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheNotEqualTo(final Integer value) {
+            this.addCriterion("enable_reload_cache <>", value, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheIn(final List<Integer> values) {
+            this.addCriterion("enable_reload_cache in", values, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheNotIn(final List<Integer> values) {
+            this.addCriterion("enable_reload_cache not in", values, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_reload_cache between", value1, value2, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("enable_reload_cache not between", value1, value2, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheGreaterThan(final Integer value) {
+            this.addCriterion("enable_reload_cache >", value, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_reload_cache >=", value, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheLessThan(final Integer value) {
+            this.addCriterion("enable_reload_cache <", value, "enableReloadCache");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnableReloadCacheLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("enable_reload_cache <=", value, "enableReloadCache");
             return (Criteria) this;
         }
 
@@ -541,331 +841,6 @@ public class SysChainExample {
 
         public Criteria andStatusLessThanOrEqualTo(final Integer value) {
             this.addCriterion("status <=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsIsNull() {
-            this.addCriterion("confirmations is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsIsNotNull() {
-            this.addCriterion("confirmations is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsEqualTo(final Integer value) {
-            this.addCriterion("confirmations =", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsNotEqualTo(final Integer value) {
-            this.addCriterion("confirmations <>", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsIn(final List<Integer> values) {
-            this.addCriterion("confirmations in", values, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsNotIn(final List<Integer> values) {
-            this.addCriterion("confirmations not in", values, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("confirmations between", value1, value2, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("confirmations not between", value1, value2, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsGreaterThan(final Integer value) {
-            this.addCriterion("confirmations >", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("confirmations >=", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsLessThan(final Integer value) {
-            this.addCriterion("confirmations <", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andConfirmationsLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("confirmations <=", value, "confirmations");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeIsNull() {
-            this.addCriterion("enable_track_fee is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeIsNotNull() {
-            this.addCriterion("enable_track_fee is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeEqualTo(final Integer value) {
-            this.addCriterion("enable_track_fee =", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeNotEqualTo(final Integer value) {
-            this.addCriterion("enable_track_fee <>", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeIn(final List<Integer> values) {
-            this.addCriterion("enable_track_fee in", values, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeNotIn(final List<Integer> values) {
-            this.addCriterion("enable_track_fee not in", values, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("enable_track_fee between", value1, value2, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("enable_track_fee not between", value1, value2, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeGreaterThan(final Integer value) {
-            this.addCriterion("enable_track_fee >", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("enable_track_fee >=", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeLessThan(final Integer value) {
-            this.addCriterion("enable_track_fee <", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andEnableTrackFeeLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("enable_track_fee <=", value, "enableTrackFee");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationIsNull() {
-            this.addCriterion("specification is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationIsNotNull() {
-            this.addCriterion("specification is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationEqualTo(final String value) {
-            this.addCriterion("specification =", value, "specification");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationNotEqualTo(final String value) {
-            this.addCriterion("specification <>", value, "specification");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationIn(final List<String> values) {
-            this.addCriterion("specification in", values, "specification");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationNotIn(final List<String> values) {
-            this.addCriterion("specification not in", values, "specification");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andSpecificationLike(final String value) {
-            this.addCriterion("specification like", value, "specification");
-            return (Criteria) this;
-        }
-
-        public Criteria andSpecificationNotLike(final String value) {
-            this.addCriterion("specification not like", value, "specification");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlIsNull() {
-            this.addCriterion("block_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlIsNotNull() {
-            this.addCriterion("block_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlEqualTo(final String value) {
-            this.addCriterion("block_url =", value, "blockUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlNotEqualTo(final String value) {
-            this.addCriterion("block_url <>", value, "blockUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlIn(final List<String> values) {
-            this.addCriterion("block_url in", values, "blockUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlNotIn(final List<String> values) {
-            this.addCriterion("block_url not in", values, "blockUrl");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andBlockUrlLike(final String value) {
-            this.addCriterion("block_url like", value, "blockUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andBlockUrlNotLike(final String value) {
-            this.addCriterion("block_url not like", value, "blockUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlIsNull() {
-            this.addCriterion("tx_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlIsNotNull() {
-            this.addCriterion("tx_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlEqualTo(final String value) {
-            this.addCriterion("tx_url =", value, "txUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlNotEqualTo(final String value) {
-            this.addCriterion("tx_url <>", value, "txUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlIn(final List<String> values) {
-            this.addCriterion("tx_url in", values, "txUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlNotIn(final List<String> values) {
-            this.addCriterion("tx_url not in", values, "txUrl");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andTxUrlLike(final String value) {
-            this.addCriterion("tx_url like", value, "txUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxUrlNotLike(final String value) {
-            this.addCriterion("tx_url not like", value, "txUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlIsNull() {
-            this.addCriterion("tx_fee_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlIsNotNull() {
-            this.addCriterion("tx_fee_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlEqualTo(final String value) {
-            this.addCriterion("tx_fee_url =", value, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlNotEqualTo(final String value) {
-            this.addCriterion("tx_fee_url <>", value, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlIn(final List<String> values) {
-            this.addCriterion("tx_fee_url in", values, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlNotIn(final List<String> values) {
-            this.addCriterion("tx_fee_url not in", values, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andTxFeeUrlLike(final String value) {
-            this.addCriterion("tx_fee_url like", value, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andTxFeeUrlNotLike(final String value) {
-            this.addCriterion("tx_fee_url not like", value, "txFeeUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesIsNull() {
-            this.addCriterion("properties is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesIsNotNull() {
-            this.addCriterion("properties is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesEqualTo(final String value) {
-            this.addCriterion("properties =", value, "properties");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesNotEqualTo(final String value) {
-            this.addCriterion("properties <>", value, "properties");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesIn(final List<String> values) {
-            this.addCriterion("properties in", values, "properties");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesNotIn(final List<String> values) {
-            this.addCriterion("properties not in", values, "properties");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andPropertiesLike(final String value) {
-            this.addCriterion("properties like", value, "properties");
-            return (Criteria) this;
-        }
-
-        public Criteria andPropertiesNotLike(final String value) {
-            this.addCriterion("properties not like", value, "properties");
             return (Criteria) this;
         }
 

@@ -1,8 +1,8 @@
 package org.web3soft.easytoken.wallet.service;
 
 import org.web3soft.commons.mybatis.service.CrudService;
+import org.web3soft.easytoken.wallet.data.example.SysChainRpcConfExample;
 import org.web3soft.easytoken.wallet.domain.SysChainRpcConf;
-import org.web3soft.easytoken.wallet.example.SysChainRpcConfExample;
 
 /**
  * 针对表【sys_chain_rpc_conf(链节点RPC配置表)】的业务逻辑接口

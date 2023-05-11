@@ -2,9 +2,9 @@ package org.web3soft.easytoken.wallet.service.impl;
 
 import org.springframework.stereotype.Service;
 import org.web3soft.commons.mybatis.service.AbstractCrudService;
-import org.web3soft.easytoken.wallet.data.SysTokenBalanceRepository;
+import org.web3soft.easytoken.wallet.data.example.SysTokenBalanceExample;
+import org.web3soft.easytoken.wallet.data.repository.SysTokenBalanceRepository;
 import org.web3soft.easytoken.wallet.domain.SysTokenBalance;
-import org.web3soft.easytoken.wallet.example.SysTokenBalanceExample;
 import org.web3soft.easytoken.wallet.service.SysTokenBalanceService;
 
 /**

@@ -1,23 +1,23 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_chain_latest_block(链当前扫描的最新区块高度记录表)】的查询条件example类
+ * 针对表【sys_chain_rpc_conf(链节点RPC配置表)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:36
+ * @date 2023-05-10 21:52:39
  */
-public class SysChainLatestBlockExample {
+public class SysChainRpcConfExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysChainLatestBlockExample() {
+    public SysChainRpcConfExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -241,66 +241,6 @@ public class SysChainLatestBlockExample {
             return (Criteria) this;
         }
 
-        public Criteria andServerNodeIdIsNull() {
-            this.addCriterion("server_node_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdIsNotNull() {
-            this.addCriterion("server_node_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdEqualTo(final Integer value) {
-            this.addCriterion("server_node_id =", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdNotEqualTo(final Integer value) {
-            this.addCriterion("server_node_id <>", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdIn(final List<Integer> values) {
-            this.addCriterion("server_node_id in", values, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdNotIn(final List<Integer> values) {
-            this.addCriterion("server_node_id not in", values, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("server_node_id between", value1, value2, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("server_node_id not between", value1, value2, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdGreaterThan(final Integer value) {
-            this.addCriterion("server_node_id >", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("server_node_id >=", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdLessThan(final Integer value) {
-            this.addCriterion("server_node_id <", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
-        public Criteria andServerNodeIdLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("server_node_id <=", value, "serverNodeId");
-            return (Criteria) this;
-        }
-
         public Criteria andChainIdIsNull() {
             this.addCriterion("chain_id is null");
             return (Criteria) this;
@@ -311,113 +251,217 @@ public class SysChainLatestBlockExample {
             return (Criteria) this;
         }
 
-        public Criteria andChainIdEqualTo(final Object value) {
+        public Criteria andChainIdEqualTo(final Integer value) {
             this.addCriterion("chain_id =", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotEqualTo(final Object value) {
+        public Criteria andChainIdNotEqualTo(final Integer value) {
             this.addCriterion("chain_id <>", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIn(final List<Object> values) {
+        public Criteria andChainIdIn(final List<Integer> values) {
             this.addCriterion("chain_id in", values, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotIn(final List<Object> values) {
+        public Criteria andChainIdNotIn(final List<Integer> values) {
             this.addCriterion("chain_id not in", values, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdBetween(final Object value1, final Object value2) {
+        public Criteria andChainIdBetween(final Integer value1, final Integer value2) {
             this.addCriterion("chain_id between", value1, value2, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotBetween(final Object value1, final Object value2) {
+        public Criteria andChainIdNotBetween(final Integer value1, final Integer value2) {
             this.addCriterion("chain_id not between", value1, value2, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdGreaterThan(final Object value) {
+        public Criteria andChainIdGreaterThan(final Integer value) {
             this.addCriterion("chain_id >", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdGreaterThanOrEqualTo(final Object value) {
+        public Criteria andChainIdGreaterThanOrEqualTo(final Integer value) {
             this.addCriterion("chain_id >=", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdLessThan(final Object value) {
+        public Criteria andChainIdLessThan(final Integer value) {
             this.addCriterion("chain_id <", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdLessThanOrEqualTo(final Object value) {
+        public Criteria andChainIdLessThanOrEqualTo(final Integer value) {
             this.addCriterion("chain_id <=", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andHeightIsNull() {
-            this.addCriterion("height is null");
+        public Criteria andHostIsNull() {
+            this.addCriterion("host is null");
             return (Criteria) this;
         }
 
-        public Criteria andHeightIsNotNull() {
-            this.addCriterion("height is not null");
+        public Criteria andHostIsNotNull() {
+            this.addCriterion("host is not null");
             return (Criteria) this;
         }
 
-        public Criteria andHeightEqualTo(final Long value) {
-            this.addCriterion("height =", value, "height");
+        public Criteria andHostEqualTo(final String value) {
+            this.addCriterion("host =", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightNotEqualTo(final Long value) {
-            this.addCriterion("height <>", value, "height");
+        public Criteria andHostNotEqualTo(final String value) {
+            this.addCriterion("host <>", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightIn(final List<Long> values) {
-            this.addCriterion("height in", values, "height");
+        public Criteria andHostIn(final List<String> values) {
+            this.addCriterion("host in", values, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightNotIn(final List<Long> values) {
-            this.addCriterion("height not in", values, "height");
+        public Criteria andHostNotIn(final List<String> values) {
+            this.addCriterion("host not in", values, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightBetween(final Long value1, final Long value2) {
-            this.addCriterion("height between", value1, value2, "height");
+
+        public Criteria andHostLike(final String value) {
+            this.addCriterion("host like", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightNotBetween(final Long value1, final Long value2) {
-            this.addCriterion("height not between", value1, value2, "height");
+        public Criteria andHostNotLike(final String value) {
+            this.addCriterion("host not like", value, "host");
             return (Criteria) this;
         }
 
-        public Criteria andHeightGreaterThan(final Long value) {
-            this.addCriterion("height >", value, "height");
+        public Criteria andUsernameIsNull() {
+            this.addCriterion("username is null");
             return (Criteria) this;
         }
 
-        public Criteria andHeightGreaterThanOrEqualTo(final Long value) {
-            this.addCriterion("height >=", value, "height");
+        public Criteria andUsernameIsNotNull() {
+            this.addCriterion("username is not null");
             return (Criteria) this;
         }
 
-        public Criteria andHeightLessThan(final Long value) {
-            this.addCriterion("height <", value, "height");
+        public Criteria andUsernameEqualTo(final String value) {
+            this.addCriterion("username =", value, "username");
             return (Criteria) this;
         }
 
-        public Criteria andHeightLessThanOrEqualTo(final Long value) {
-            this.addCriterion("height <=", value, "height");
+        public Criteria andUsernameNotEqualTo(final String value) {
+            this.addCriterion("username <>", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameIn(final List<String> values) {
+            this.addCriterion("username in", values, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotIn(final List<String> values) {
+            this.addCriterion("username not in", values, "username");
+            return (Criteria) this;
+        }
+
+
+        public Criteria andUsernameLike(final String value) {
+            this.addCriterion("username like", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andUsernameNotLike(final String value) {
+            this.addCriterion("username not like", value, "username");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIsNull() {
+            this.addCriterion("password is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIsNotNull() {
+            this.addCriterion("password is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordEqualTo(final String value) {
+            this.addCriterion("password =", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotEqualTo(final String value) {
+            this.addCriterion("password <>", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordIn(final List<String> values) {
+            this.addCriterion("password in", values, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotIn(final List<String> values) {
+            this.addCriterion("password not in", values, "password");
+            return (Criteria) this;
+        }
+
+
+        public Criteria andPasswordLike(final String value) {
+            this.addCriterion("password like", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPasswordNotLike(final String value) {
+            this.addCriterion("password not like", value, "password");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesIsNull() {
+            this.addCriterion("properties is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesIsNotNull() {
+            this.addCriterion("properties is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesEqualTo(final String value) {
+            this.addCriterion("properties =", value, "properties");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesNotEqualTo(final String value) {
+            this.addCriterion("properties <>", value, "properties");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesIn(final List<String> values) {
+            this.addCriterion("properties in", values, "properties");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesNotIn(final List<String> values) {
+            this.addCriterion("properties not in", values, "properties");
+            return (Criteria) this;
+        }
+
+
+        public Criteria andPropertiesLike(final String value) {
+            this.addCriterion("properties like", value, "properties");
+            return (Criteria) this;
+        }
+
+        public Criteria andPropertiesNotLike(final String value) {
+            this.addCriterion("properties not like", value, "properties");
             return (Criteria) this;
         }
 

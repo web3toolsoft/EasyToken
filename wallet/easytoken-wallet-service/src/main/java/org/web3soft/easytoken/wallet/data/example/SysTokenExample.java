@@ -1,4 +1,4 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

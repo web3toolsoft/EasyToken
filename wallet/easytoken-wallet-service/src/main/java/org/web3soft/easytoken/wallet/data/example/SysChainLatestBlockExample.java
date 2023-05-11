@@ -1,24 +1,23 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_token_balance(链上代币余额统计表)】的查询条件example类
+ * 针对表【sys_chain_latest_block(链当前扫描的最新区块高度记录表)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:51
+ * @date 2023-05-10 21:52:36
  */
-public class SysTokenBalanceExample {
+public class SysChainLatestBlockExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysTokenBalanceExample() {
+    public SysChainLatestBlockExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -242,123 +241,183 @@ public class SysTokenBalanceExample {
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdIsNull() {
-            this.addCriterion("token_id is null");
+        public Criteria andServerNodeIdIsNull() {
+            this.addCriterion("server_node_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdIsNotNull() {
-            this.addCriterion("token_id is not null");
+        public Criteria andServerNodeIdIsNotNull() {
+            this.addCriterion("server_node_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdEqualTo(final Integer value) {
-            this.addCriterion("token_id =", value, "tokenId");
+        public Criteria andServerNodeIdEqualTo(final Integer value) {
+            this.addCriterion("server_node_id =", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdNotEqualTo(final Integer value) {
-            this.addCriterion("token_id <>", value, "tokenId");
+        public Criteria andServerNodeIdNotEqualTo(final Integer value) {
+            this.addCriterion("server_node_id <>", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdIn(final List<Integer> values) {
-            this.addCriterion("token_id in", values, "tokenId");
+        public Criteria andServerNodeIdIn(final List<Integer> values) {
+            this.addCriterion("server_node_id in", values, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdNotIn(final List<Integer> values) {
-            this.addCriterion("token_id not in", values, "tokenId");
+        public Criteria andServerNodeIdNotIn(final List<Integer> values) {
+            this.addCriterion("server_node_id not in", values, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("token_id between", value1, value2, "tokenId");
+        public Criteria andServerNodeIdBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("server_node_id between", value1, value2, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("token_id not between", value1, value2, "tokenId");
+        public Criteria andServerNodeIdNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("server_node_id not between", value1, value2, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdGreaterThan(final Integer value) {
-            this.addCriterion("token_id >", value, "tokenId");
+        public Criteria andServerNodeIdGreaterThan(final Integer value) {
+            this.addCriterion("server_node_id >", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("token_id >=", value, "tokenId");
+        public Criteria andServerNodeIdGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("server_node_id >=", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdLessThan(final Integer value) {
-            this.addCriterion("token_id <", value, "tokenId");
+        public Criteria andServerNodeIdLessThan(final Integer value) {
+            this.addCriterion("server_node_id <", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andTokenIdLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("token_id <=", value, "tokenId");
+        public Criteria andServerNodeIdLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("server_node_id <=", value, "serverNodeId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceIsNull() {
-            this.addCriterion("balance is null");
+        public Criteria andChainIdIsNull() {
+            this.addCriterion("chain_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceIsNotNull() {
-            this.addCriterion("balance is not null");
+        public Criteria andChainIdIsNotNull() {
+            this.addCriterion("chain_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceEqualTo(final BigDecimal value) {
-            this.addCriterion("balance =", value, "balance");
+        public Criteria andChainIdEqualTo(final Object value) {
+            this.addCriterion("chain_id =", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceNotEqualTo(final BigDecimal value) {
-            this.addCriterion("balance <>", value, "balance");
+        public Criteria andChainIdNotEqualTo(final Object value) {
+            this.addCriterion("chain_id <>", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceIn(final List<BigDecimal> values) {
-            this.addCriterion("balance in", values, "balance");
+        public Criteria andChainIdIn(final List<Object> values) {
+            this.addCriterion("chain_id in", values, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceNotIn(final List<BigDecimal> values) {
-            this.addCriterion("balance not in", values, "balance");
+        public Criteria andChainIdNotIn(final List<Object> values) {
+            this.addCriterion("chain_id not in", values, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceBetween(final BigDecimal value1, final BigDecimal value2) {
-            this.addCriterion("balance between", value1, value2, "balance");
+        public Criteria andChainIdBetween(final Object value1, final Object value2) {
+            this.addCriterion("chain_id between", value1, value2, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceNotBetween(final BigDecimal value1, final BigDecimal value2) {
-            this.addCriterion("balance not between", value1, value2, "balance");
+        public Criteria andChainIdNotBetween(final Object value1, final Object value2) {
+            this.addCriterion("chain_id not between", value1, value2, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceGreaterThan(final BigDecimal value) {
-            this.addCriterion("balance >", value, "balance");
+        public Criteria andChainIdGreaterThan(final Object value) {
+            this.addCriterion("chain_id >", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceGreaterThanOrEqualTo(final BigDecimal value) {
-            this.addCriterion("balance >=", value, "balance");
+        public Criteria andChainIdGreaterThanOrEqualTo(final Object value) {
+            this.addCriterion("chain_id >=", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceLessThan(final BigDecimal value) {
-            this.addCriterion("balance <", value, "balance");
+        public Criteria andChainIdLessThan(final Object value) {
+            this.addCriterion("chain_id <", value, "chainId");
             return (Criteria) this;
         }
 
-        public Criteria andBalanceLessThanOrEqualTo(final BigDecimal value) {
-            this.addCriterion("balance <=", value, "balance");
+        public Criteria andChainIdLessThanOrEqualTo(final Object value) {
+            this.addCriterion("chain_id <=", value, "chainId");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightIsNull() {
+            this.addCriterion("height is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightIsNotNull() {
+            this.addCriterion("height is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightEqualTo(final Long value) {
+            this.addCriterion("height =", value, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightNotEqualTo(final Long value) {
+            this.addCriterion("height <>", value, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightIn(final List<Long> values) {
+            this.addCriterion("height in", values, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightNotIn(final List<Long> values) {
+            this.addCriterion("height not in", values, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightBetween(final Long value1, final Long value2) {
+            this.addCriterion("height between", value1, value2, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightNotBetween(final Long value1, final Long value2) {
+            this.addCriterion("height not between", value1, value2, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightGreaterThan(final Long value) {
+            this.addCriterion("height >", value, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightGreaterThanOrEqualTo(final Long value) {
+            this.addCriterion("height >=", value, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightLessThan(final Long value) {
+            this.addCriterion("height <", value, "height");
+            return (Criteria) this;
+        }
+
+        public Criteria andHeightLessThanOrEqualTo(final Long value) {
+            this.addCriterion("height <=", value, "height");
             return (Criteria) this;
         }
 

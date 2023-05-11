@@ -1,23 +1,24 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_token_standard(链上币种协议表)】的查询条件example类
+ * 针对表【sys_token_balance(链上代币余额统计表)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:54
+ * @date 2023-05-10 21:52:51
  */
-public class SysTokenStandardExample {
+public class SysTokenBalanceExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysTokenStandardExample() {
+    public SysTokenBalanceExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -241,145 +242,123 @@ public class SysTokenStandardExample {
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIsNull() {
-            this.addCriterion("chain_id is null");
+        public Criteria andTokenIdIsNull() {
+            this.addCriterion("token_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIsNotNull() {
-            this.addCriterion("chain_id is not null");
+        public Criteria andTokenIdIsNotNull() {
+            this.addCriterion("token_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdEqualTo(final Integer value) {
-            this.addCriterion("chain_id =", value, "chainId");
+        public Criteria andTokenIdEqualTo(final Integer value) {
+            this.addCriterion("token_id =", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotEqualTo(final Integer value) {
-            this.addCriterion("chain_id <>", value, "chainId");
+        public Criteria andTokenIdNotEqualTo(final Integer value) {
+            this.addCriterion("token_id <>", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIn(final List<Integer> values) {
-            this.addCriterion("chain_id in", values, "chainId");
+        public Criteria andTokenIdIn(final List<Integer> values) {
+            this.addCriterion("token_id in", values, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotIn(final List<Integer> values) {
-            this.addCriterion("chain_id not in", values, "chainId");
+        public Criteria andTokenIdNotIn(final List<Integer> values) {
+            this.addCriterion("token_id not in", values, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("chain_id between", value1, value2, "chainId");
+        public Criteria andTokenIdBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("token_id between", value1, value2, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("chain_id not between", value1, value2, "chainId");
+        public Criteria andTokenIdNotBetween(final Integer value1, final Integer value2) {
+            this.addCriterion("token_id not between", value1, value2, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdGreaterThan(final Integer value) {
-            this.addCriterion("chain_id >", value, "chainId");
+        public Criteria andTokenIdGreaterThan(final Integer value) {
+            this.addCriterion("token_id >", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("chain_id >=", value, "chainId");
+        public Criteria andTokenIdGreaterThanOrEqualTo(final Integer value) {
+            this.addCriterion("token_id >=", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdLessThan(final Integer value) {
-            this.addCriterion("chain_id <", value, "chainId");
+        public Criteria andTokenIdLessThan(final Integer value) {
+            this.addCriterion("token_id <", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("chain_id <=", value, "chainId");
+        public Criteria andTokenIdLessThanOrEqualTo(final Integer value) {
+            this.addCriterion("token_id <=", value, "tokenId");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIsNull() {
-            this.addCriterion("code is null");
+        public Criteria andBalanceIsNull() {
+            this.addCriterion("balance is null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIsNotNull() {
-            this.addCriterion("code is not null");
+        public Criteria andBalanceIsNotNull() {
+            this.addCriterion("balance is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCodeEqualTo(final String value) {
-            this.addCriterion("code =", value, "code");
+        public Criteria andBalanceEqualTo(final BigDecimal value) {
+            this.addCriterion("balance =", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotEqualTo(final String value) {
-            this.addCriterion("code <>", value, "code");
+        public Criteria andBalanceNotEqualTo(final BigDecimal value) {
+            this.addCriterion("balance <>", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCodeIn(final List<String> values) {
-            this.addCriterion("code in", values, "code");
+        public Criteria andBalanceIn(final List<BigDecimal> values) {
+            this.addCriterion("balance in", values, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotIn(final List<String> values) {
-            this.addCriterion("code not in", values, "code");
+        public Criteria andBalanceNotIn(final List<BigDecimal> values) {
+            this.addCriterion("balance not in", values, "balance");
             return (Criteria) this;
         }
 
-
-        public Criteria andCodeLike(final String value) {
-            this.addCriterion("code like", value, "code");
+        public Criteria andBalanceBetween(final BigDecimal value1, final BigDecimal value2) {
+            this.addCriterion("balance between", value1, value2, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andCodeNotLike(final String value) {
-            this.addCriterion("code not like", value, "code");
+        public Criteria andBalanceNotBetween(final BigDecimal value1, final BigDecimal value2) {
+            this.addCriterion("balance not between", value1, value2, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andMemoIsNull() {
-            this.addCriterion("memo is null");
+        public Criteria andBalanceGreaterThan(final BigDecimal value) {
+            this.addCriterion("balance >", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andMemoIsNotNull() {
-            this.addCriterion("memo is not null");
+        public Criteria andBalanceGreaterThanOrEqualTo(final BigDecimal value) {
+            this.addCriterion("balance >=", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andMemoEqualTo(final String value) {
-            this.addCriterion("memo =", value, "memo");
+        public Criteria andBalanceLessThan(final BigDecimal value) {
+            this.addCriterion("balance <", value, "balance");
             return (Criteria) this;
         }
 
-        public Criteria andMemoNotEqualTo(final String value) {
-            this.addCriterion("memo <>", value, "memo");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemoIn(final List<String> values) {
-            this.addCriterion("memo in", values, "memo");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemoNotIn(final List<String> values) {
-            this.addCriterion("memo not in", values, "memo");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andMemoLike(final String value) {
-            this.addCriterion("memo like", value, "memo");
-            return (Criteria) this;
-        }
-
-        public Criteria andMemoNotLike(final String value) {
-            this.addCriterion("memo not like", value, "memo");
+        public Criteria andBalanceLessThanOrEqualTo(final BigDecimal value) {
+            this.addCriterion("balance <=", value, "balance");
             return (Criteria) this;
         }
 

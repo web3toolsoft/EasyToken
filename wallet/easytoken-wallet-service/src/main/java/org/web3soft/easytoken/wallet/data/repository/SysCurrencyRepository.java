@@ -1,9 +1,9 @@
-package org.web3soft.easytoken.wallet.data;
+package org.web3soft.easytoken.wallet.data.repository;
 
 import org.springframework.stereotype.Repository;
 import org.web3soft.commons.mybatis.data.CrudRepository;
+import org.web3soft.easytoken.wallet.data.example.SysCurrencyExample;
 import org.web3soft.easytoken.wallet.domain.SysCurrency;
-import org.web3soft.easytoken.wallet.example.SysCurrencyExample;
 
 /**
  * 针对表【sys_currency(币种表)】的数据库访问操作

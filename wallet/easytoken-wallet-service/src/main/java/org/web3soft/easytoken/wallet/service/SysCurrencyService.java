@@ -1,8 +1,8 @@
 package org.web3soft.easytoken.wallet.service;
 
 import org.web3soft.commons.mybatis.service.CrudService;
+import org.web3soft.easytoken.wallet.data.example.SysCurrencyExample;
 import org.web3soft.easytoken.wallet.domain.SysCurrency;
-import org.web3soft.easytoken.wallet.example.SysCurrencyExample;
 
 /**
  * 针对表【sys_currency(币种表)】的业务逻辑接口

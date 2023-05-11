@@ -1,23 +1,23 @@
-package org.web3soft.easytoken.wallet.example;
+package org.web3soft.easytoken.wallet.data.example;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * 针对表【sys_chain_rpc_conf(链节点RPC配置表)】的查询条件example类
+ * 针对表【sys_config(配置表:name/value结构)】的查询条件example类
  *
  * @author Tom Deng
- * @date 2023-05-10 21:52:39
+ * @date 2023-05-10 21:52:41
  */
-public class SysChainRpcConfExample {
+public class SysConfigExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public SysChainRpcConfExample() {
+    public SysConfigExample() {
         this.oredCriteria = new ArrayList<>();
     }
 
@@ -241,227 +241,126 @@ public class SysChainRpcConfExample {
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIsNull() {
-            this.addCriterion("chain_id is null");
+        public Criteria andConfigNameIsNull() {
+            this.addCriterion("config_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIsNotNull() {
-            this.addCriterion("chain_id is not null");
+        public Criteria andConfigNameIsNotNull() {
+            this.addCriterion("config_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdEqualTo(final Integer value) {
-            this.addCriterion("chain_id =", value, "chainId");
+        public Criteria andConfigNameEqualTo(final String value) {
+            this.addCriterion("config_name =", value, "configName");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotEqualTo(final Integer value) {
-            this.addCriterion("chain_id <>", value, "chainId");
+        public Criteria andConfigNameNotEqualTo(final String value) {
+            this.addCriterion("config_name <>", value, "configName");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdIn(final List<Integer> values) {
-            this.addCriterion("chain_id in", values, "chainId");
+        public Criteria andConfigNameIn(final List<String> values) {
+            this.addCriterion("config_name in", values, "configName");
             return (Criteria) this;
         }
 
-        public Criteria andChainIdNotIn(final List<Integer> values) {
-            this.addCriterion("chain_id not in", values, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("chain_id between", value1, value2, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdNotBetween(final Integer value1, final Integer value2) {
-            this.addCriterion("chain_id not between", value1, value2, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdGreaterThan(final Integer value) {
-            this.addCriterion("chain_id >", value, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdGreaterThanOrEqualTo(final Integer value) {
-            this.addCriterion("chain_id >=", value, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdLessThan(final Integer value) {
-            this.addCriterion("chain_id <", value, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andChainIdLessThanOrEqualTo(final Integer value) {
-            this.addCriterion("chain_id <=", value, "chainId");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostIsNull() {
-            this.addCriterion("host is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostIsNotNull() {
-            this.addCriterion("host is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostEqualTo(final String value) {
-            this.addCriterion("host =", value, "host");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostNotEqualTo(final String value) {
-            this.addCriterion("host <>", value, "host");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostIn(final List<String> values) {
-            this.addCriterion("host in", values, "host");
-            return (Criteria) this;
-        }
-
-        public Criteria andHostNotIn(final List<String> values) {
-            this.addCriterion("host not in", values, "host");
+        public Criteria andConfigNameNotIn(final List<String> values) {
+            this.addCriterion("config_name not in", values, "configName");
             return (Criteria) this;
         }
 
 
-        public Criteria andHostLike(final String value) {
-            this.addCriterion("host like", value, "host");
+        public Criteria andConfigNameLike(final String value) {
+            this.addCriterion("config_name like", value, "configName");
             return (Criteria) this;
         }
 
-        public Criteria andHostNotLike(final String value) {
-            this.addCriterion("host not like", value, "host");
+        public Criteria andConfigNameNotLike(final String value) {
+            this.addCriterion("config_name not like", value, "configName");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameIsNull() {
-            this.addCriterion("username is null");
+        public Criteria andConfigValueIsNull() {
+            this.addCriterion("config_value is null");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameIsNotNull() {
-            this.addCriterion("username is not null");
+        public Criteria andConfigValueIsNotNull() {
+            this.addCriterion("config_value is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameEqualTo(final String value) {
-            this.addCriterion("username =", value, "username");
+        public Criteria andConfigValueEqualTo(final String value) {
+            this.addCriterion("config_value =", value, "configValue");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameNotEqualTo(final String value) {
-            this.addCriterion("username <>", value, "username");
+        public Criteria andConfigValueNotEqualTo(final String value) {
+            this.addCriterion("config_value <>", value, "configValue");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameIn(final List<String> values) {
-            this.addCriterion("username in", values, "username");
+        public Criteria andConfigValueIn(final List<String> values) {
+            this.addCriterion("config_value in", values, "configValue");
             return (Criteria) this;
         }
 
-        public Criteria andUsernameNotIn(final List<String> values) {
-            this.addCriterion("username not in", values, "username");
-            return (Criteria) this;
-        }
-
-
-        public Criteria andUsernameLike(final String value) {
-            this.addCriterion("username like", value, "username");
-            return (Criteria) this;
-        }
-
-        public Criteria andUsernameNotLike(final String value) {
-            this.addCriterion("username not like", value, "username");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordIsNull() {
-            this.addCriterion("password is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordIsNotNull() {
-            this.addCriterion("password is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordEqualTo(final String value) {
-            this.addCriterion("password =", value, "password");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordNotEqualTo(final String value) {
-            this.addCriterion("password <>", value, "password");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordIn(final List<String> values) {
-            this.addCriterion("password in", values, "password");
-            return (Criteria) this;
-        }
-
-        public Criteria andPasswordNotIn(final List<String> values) {
-            this.addCriterion("password not in", values, "password");
+        public Criteria andConfigValueNotIn(final List<String> values) {
+            this.addCriterion("config_value not in", values, "configValue");
             return (Criteria) this;
         }
 
 
-        public Criteria andPasswordLike(final String value) {
-            this.addCriterion("password like", value, "password");
+        public Criteria andConfigValueLike(final String value) {
+            this.addCriterion("config_value like", value, "configValue");
             return (Criteria) this;
         }
 
-        public Criteria andPasswordNotLike(final String value) {
-            this.addCriterion("password not like", value, "password");
+        public Criteria andConfigValueNotLike(final String value) {
+            this.addCriterion("config_value not like", value, "configValue");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesIsNull() {
-            this.addCriterion("properties is null");
+        public Criteria andConfigRemarkIsNull() {
+            this.addCriterion("config_remark is null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesIsNotNull() {
-            this.addCriterion("properties is not null");
+        public Criteria andConfigRemarkIsNotNull() {
+            this.addCriterion("config_remark is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesEqualTo(final String value) {
-            this.addCriterion("properties =", value, "properties");
+        public Criteria andConfigRemarkEqualTo(final String value) {
+            this.addCriterion("config_remark =", value, "configRemark");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesNotEqualTo(final String value) {
-            this.addCriterion("properties <>", value, "properties");
+        public Criteria andConfigRemarkNotEqualTo(final String value) {
+            this.addCriterion("config_remark <>", value, "configRemark");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesIn(final List<String> values) {
-            this.addCriterion("properties in", values, "properties");
+        public Criteria andConfigRemarkIn(final List<String> values) {
+            this.addCriterion("config_remark in", values, "configRemark");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesNotIn(final List<String> values) {
-            this.addCriterion("properties not in", values, "properties");
+        public Criteria andConfigRemarkNotIn(final List<String> values) {
+            this.addCriterion("config_remark not in", values, "configRemark");
             return (Criteria) this;
         }
 
 
-        public Criteria andPropertiesLike(final String value) {
-            this.addCriterion("properties like", value, "properties");
+        public Criteria andConfigRemarkLike(final String value) {
+            this.addCriterion("config_remark like", value, "configRemark");
             return (Criteria) this;
         }
 
-        public Criteria andPropertiesNotLike(final String value) {
-            this.addCriterion("properties not like", value, "properties");
+        public Criteria andConfigRemarkNotLike(final String value) {
+            this.addCriterion("config_remark not like", value, "configRemark");
             return (Criteria) this;
         }
 
