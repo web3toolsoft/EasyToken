@@ -11,6 +11,5 @@ import org.web3soft.commons.mybatis.sample.example.UserExample;
  * @author Tom Deng
  */
 @Repository
-public interface UserRepository
-        extends CrudRepository<User, UserExample, Integer> {
+public interface UserRepository extends CrudRepository<User, UserExample, Integer> {
 }
