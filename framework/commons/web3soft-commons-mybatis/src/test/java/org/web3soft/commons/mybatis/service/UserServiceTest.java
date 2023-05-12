@@ -188,7 +188,7 @@ public class UserServiceTest extends BaseTest {
     @Test
     void getById() {
         this.initRecords();
-        final User user1 = this.userService.getById(6);
+        final User user1 = this.userService.getById(6, List.of("id", "account"));
         Assertions.assertThat(user1.getId()).isEqualTo(6);
     }
 
@@ -199,6 +199,17 @@ public class UserServiceTest extends BaseTest {
         final UserExample example = new UserExample();
         example.createCriteria()
                 .andIdGreaterThan(6);
+        final List<User> users = this.userService.getByExample(example);
+        Assertions.assertThat(users.size()).isEqualTo(4);
+    }
+
+    @Test
+    void getByLikeExample() {
+        this.initRecords();
+
+        final UserExample example = new UserExample();
+        example.createCriteria()
+                .andAccountLike("%web3%");
         final List<User> users = this.userService.getByExample(example);
         Assertions.assertThat(users.size()).isEqualTo(4);
     }

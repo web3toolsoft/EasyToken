@@ -19,10 +19,11 @@ public interface SelectRepository<T, U, K> {
     /**
      * 通过主键找出一条数据
      *
-     * @param id 主键id值
+     * @param id      主键id值
+     * @param columns filter columns
      * @return
      */
-    T selectById(@Param("id") K id);
+    T selectById(@Param("id") K id, @Param("columns") List<String> columns);
 
     /**
      * 根据条件查询零条及多条数据

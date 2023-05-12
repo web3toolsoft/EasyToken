@@ -29,6 +29,15 @@ public interface GetService<T, U, K> {
     T getById(K id);
 
     /**
+     * 通过主键找出一条数据
+     *
+     * @param id      主键id值
+     * @param columns filter columns
+     * @return
+     */
+    T getById(K id, List<String> columns);
+
+    /**
      * 根据条件查询零条及多条数据
      *
      * @param example 查询条件参数

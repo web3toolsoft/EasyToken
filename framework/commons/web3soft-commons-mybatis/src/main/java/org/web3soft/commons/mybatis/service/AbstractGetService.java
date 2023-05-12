@@ -34,7 +34,12 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public Po getById(final Type id) {
-        return this.dao.selectById(id);
+        return this.dao.selectById(id, (List<String>) null);
+    }
+
+    @Override
+    public Po getById(final Type id, final List<String> columns) {
+        return this.dao.selectById(id, columns);
     }
 
     @Override
