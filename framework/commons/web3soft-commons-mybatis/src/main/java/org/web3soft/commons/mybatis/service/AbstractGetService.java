@@ -34,7 +34,7 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public Po getById(final Type id) {
-        return this.dao.selectById(id, (List<String>) null);
+        return this.dao.selectById(id, null);
     }
 
     @Override
@@ -44,22 +44,42 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public List<Po> getByExample(final Example example) {
-        return this.dao.selectByExample(example);
+        return this.dao.selectByExample(example, null);
+    }
+
+    @Override
+    public List<Po> getByExample(final Example example, final List<String> columns) {
+        return this.dao.selectByExample(example, columns);
     }
 
     @Override
     public List<Po> getAll() {
-        return this.dao.selectByExample(null);
+        return this.dao.selectByExample(null, null);
+    }
+
+    @Override
+    public List<Po> getAll(final List<String> columns) {
+        return this.dao.selectByExample(null, columns);
     }
 
     @Override
     public Po getOneByExample(final Example example) {
-        return this.dao.selectOneByExample(example);
+        return this.dao.selectOneByExample(example, null);
+    }
+
+    @Override
+    public Po getOneByExample(final Example example, final List<String> columns) {
+        return this.dao.selectOneByExample(example, columns);
     }
 
     @Override
     public List<Po> getIn(final List<Type> ids) {
-        return this.dao.selectIn(ids);
+        return this.dao.selectIn(ids, null);
+    }
+
+    @Override
+    public List<Po> getIn(final List<Type> ids, final List<String> columns) {
+        return this.dao.selectIn(ids, columns);
     }
 
     @Override
@@ -68,20 +88,35 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final List<String> columns) {
+        return this.getByPage(pageInfo, "", "", columns);
+    }
+
+    @Override
     public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword) {
+        return this.getByPage(pageInfo, fieldName, keyword, (List<String>) null);
+    }
+
+    @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword, final List<String> columns) {
         if (StringUtils.isBlank(fieldName)) {
-            return this.getByPage(pageInfo, (Example) null);
+            return this.getByPage(pageInfo, (Example) null, columns);
         }
-        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword));
+        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), columns);
     }
 
     @Override
     public List<Po> getByPage(final PageInfo pageInfo, final Example example) {
+        return this.getByPage(pageInfo, example, (List<String>) null);
+    }
+
+    @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final Example example, final List<String> columns) {
         pageInfo.setTotals(this.dao.countByPager(pageInfo, example));
         if (pageInfo.getTotals() <= 0) {
             return Collections.emptyList();
         }
-        return this.dao.selectByPager(pageInfo, example);
+        return this.dao.selectByPager(pageInfo, example, columns);
     }
 
     @Override
@@ -91,27 +126,52 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public Po getById(final Type id, final ShardTable shardTable) {
-        return this.dao.selectById(id, shardTable);
+        return this.dao.selectById(id, shardTable, null);
+    }
+
+    @Override
+    public Po getById(final Type id, final ShardTable shardTable, final List<String> columns) {
+        return this.dao.selectById(id, shardTable, columns);
     }
 
     @Override
     public List<Po> getByExample(final Example example, final ShardTable shardTable) {
-        return this.dao.selectByExample(example, shardTable);
+        return this.dao.selectByExample(example, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getByExample(final Example example, final ShardTable shardTable, final List<String> columns) {
+        return this.dao.selectByExample(example, shardTable, columns);
     }
 
     @Override
     public List<Po> getAll(final ShardTable shardTable) {
-        return this.dao.selectByExample(null, shardTable);
+        return this.dao.selectByExample(null, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getAll(final ShardTable shardTable, final List<String> columns) {
+        return this.dao.selectByExample(null, shardTable, columns);
     }
 
     @Override
     public Po getOneByExample(final Example example, final ShardTable shardTable) {
-        return this.dao.selectOneByExample(example, shardTable);
+        return this.dao.selectOneByExample(example, shardTable, null);
+    }
+
+    @Override
+    public Po getOneByExample(final Example example, final ShardTable shardTable, final List<String> columns) {
+        return this.dao.selectOneByExample(example, shardTable, columns);
     }
 
     @Override
     public List<Po> getIn(final List<Type> ids, final ShardTable shardTable) {
-        return this.dao.selectIn(ids, shardTable);
+        return this.dao.selectIn(ids, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getIn(final List<Type> ids, final ShardTable shardTable, final List<String> columns) {
+        return this.dao.selectIn(ids, shardTable, columns);
     }
 
     @Override
@@ -120,21 +180,37 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final ShardTable shardTable, final List<String> columns) {
+        return this.getByPage(pageInfo, "", "", shardTable, columns);
+    }
+
+    @Override
     public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword,
                               final ShardTable shardTable) {
+        return this.getByPage(pageInfo, fieldName, keyword, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword, final ShardTable shardTable,
+                              final List<String> columns) {
         if (StringUtils.isBlank(fieldName)) {
-            return this.getByPage(pageInfo, null, shardTable);
+            return this.getByPage(pageInfo, null, shardTable, columns);
         }
-        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable);
+        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable, columns);
     }
 
     @Override
     public List<Po> getByPage(final PageInfo pageInfo, final Example example, final ShardTable shardTable) {
+        return this.getByPage(pageInfo, example, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getByPage(final PageInfo pageInfo, final Example example, final ShardTable shardTable, final List<String> columns) {
         pageInfo.setTotals(this.dao.countByPager(pageInfo, example, shardTable));
         if (pageInfo.getTotals() <= 0) {
             return Collections.emptyList();
         }
-        return this.dao.selectByPager(pageInfo, example, shardTable);
+        return this.dao.selectByPager(pageInfo, example, shardTable, columns);
     }
 
     @Override
@@ -160,22 +236,37 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final List<String> columns) {
+        return this.getByPage(pageInfo, "", "", columns);
+    }
+
+    @Override
     public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword) {
+        return this.getByPage(pageInfo, fieldName, keyword, (List<String>) null);
+    }
+
+    @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword, final List<String> columns) {
         if (StringUtils.isBlank(fieldName)) {
-            return this.getByPage(pageInfo, (Example) null);
+            return this.getByPage(pageInfo, (Example) null, columns);
         }
-        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword));
+        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), columns);
     }
 
     @Override
     public List<Po> getByPage(final IdPageInfo pageInfo, final Example example) {
+        return this.getByPage(pageInfo, example, (List<String>) null);
+    }
+
+    @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final Example example, final List<String> columns) {
         final IdPageInfo pageInfo1 = this.getIdPageInfo(example);
         pageInfo.setPagerParams(pageInfo1.getMaxId(), pageInfo1.getMinId(), pageInfo1.getTotals());
         pageInfo.initStartIndex();
         if (pageInfo.getTotals() <= 0) {
             return Collections.emptyList();
         }
-        return this.dao.selectByIdPager(pageInfo, example);
+        return this.dao.selectByIdPager(pageInfo, example, columns);
     }
 
     @Override
@@ -201,23 +292,38 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     }
 
     @Override
-    public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword,
-                              final ShardTable shardTable) {
+    public List<Po> getByPage(final IdPageInfo pageInfo, final ShardTable shardTable, final List<String> columns) {
+        return this.getByPage(pageInfo, "", "", shardTable, columns);
+    }
+
+    @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword, final ShardTable shardTable) {
+        return this.getByPage(pageInfo, fieldName, keyword, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword, final ShardTable shardTable,
+                              final List<String> columns) {
         if (StringUtils.isBlank(fieldName)) {
-            return this.getByPage(pageInfo, null, shardTable);
+            return this.getByPage(pageInfo, null, shardTable, columns);
         }
-        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable);
+        return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable, columns);
     }
 
     @Override
     public List<Po> getByPage(final IdPageInfo pageInfo, final Example example, final ShardTable shardTable) {
+        return this.getByPage(pageInfo, example, shardTable, null);
+    }
+
+    @Override
+    public List<Po> getByPage(final IdPageInfo pageInfo, final Example example, final ShardTable shardTable, final List<String> columns) {
         final IdPageInfo pageInfo1 = this.getIdPageInfo(example, shardTable);
         pageInfo.setPagerParams(pageInfo1.getMaxId(), pageInfo1.getMinId(), pageInfo1.getTotals());
         pageInfo.initStartIndex();
         if (pageInfo.getTotals() <= 0) {
             return Collections.emptyList();
         }
-        return this.dao.selectByIdPager(pageInfo, example, shardTable);
+        return this.dao.selectByIdPager(pageInfo, example, shardTable, columns);
     }
 
     protected abstract Example getPageExample(String fieldName, String keyword);

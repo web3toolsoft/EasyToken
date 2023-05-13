@@ -11,7 +11,6 @@ import java.util.List;
  * @param <U> Example
  * @param <K> key字段数据类型(Integer,Long,String等)
  * @author Tom Deng
- *
  */
 public interface GetService<T, U, K> {
     /**
@@ -46,11 +45,28 @@ public interface GetService<T, U, K> {
     List<T> getByExample(U example);
 
     /**
+     * 根据条件查询零条及多条数据
+     *
+     * @param example 查询条件参数
+     * @param columns filter columns
+     * @return 记录列表
+     */
+    List<T> getByExample(U example, List<String> columns);
+
+    /**
      * 根据条件查询所有记录
      *
      * @return 记录列表
      */
     List<T> getAll();
+
+    /**
+     * 根据条件查询所有记录
+     *
+     * @param columns filter columns
+     * @return 记录列表
+     */
+    List<T> getAll(List<String> columns);
 
     /**
      * 根据条件查询一条数据
@@ -61,12 +77,30 @@ public interface GetService<T, U, K> {
     T getOneByExample(U example);
 
     /**
-     * select in() 查询
+     * 根据条件查询一条数据
+     *
+     * @param example 查询条件参数
+     * @param columns filter columns
+     * @return 分页记录列表
+     */
+    T getOneByExample(U example, List<String> columns);
+
+    /**
+     * select in(ids) 查询
      *
      * @param ids
      * @return
      */
     List<T> getIn(List<K> ids);
+
+    /**
+     * select in() 查询
+     *
+     * @param ids
+     * @param columns filter columns
+     * @return
+     */
+    List<T> getIn(List<K> ids, List<String> columns);
 
     /**
      * 分页查询
@@ -75,6 +109,15 @@ public interface GetService<T, U, K> {
      * @return 分页记录列表
      */
     List<T> getByPage(PageInfo pageInfo);
+
+    /**
+     * 分页查询
+     *
+     * @param pageInfo 分页参数
+     * @param columns  filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, List<String> columns);
 
     /**
      * 分页查询
@@ -89,11 +132,32 @@ public interface GetService<T, U, K> {
     /**
      * 分页查询
      *
+     * @param pageInfo  分页参数
+     * @param fieldName where 筛选字段名
+     * @param keyword   where 筛选字段模糊匹配关键字
+     * @param columns   filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, String fieldName, String keyword, List<String> columns);
+
+    /**
+     * 分页查询
+     *
      * @param pageInfo 分页参数
      * @param example  where条件参数
      * @return 分页记录列表
      */
     List<T> getByPage(PageInfo pageInfo, U example);
+
+    /**
+     * 分页查询
+     *
+     * @param pageInfo 分页参数
+     * @param example  where条件参数
+     * @param columns  filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, U example, List<String> columns);
 
     /**
      * @param example
@@ -111,6 +175,16 @@ public interface GetService<T, U, K> {
     T getById(K id, ShardTable shardTable);
 
     /**
+     * 通过主键找出一条数据
+     *
+     * @param id         主键id值
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 当前id对象的记录
+     */
+    T getById(K id, ShardTable shardTable, List<String> columns);
+
+    /**
      * 根据条件查询零条及多条数据
      *
      * @param example    查询条件参数
@@ -120,12 +194,31 @@ public interface GetService<T, U, K> {
     List<T> getByExample(U example, ShardTable shardTable);
 
     /**
+     * 根据条件查询零条及多条数据
+     *
+     * @param example    查询条件参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 记录列表
+     */
+    List<T> getByExample(U example, ShardTable shardTable, List<String> columns);
+
+    /**
      * 根据条件查询所有记录
      *
      * @param shardTable 分表对象
      * @return 记录列表
      */
     List<T> getAll(ShardTable shardTable);
+
+    /**
+     * 根据条件查询所有记录
+     *
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 记录列表
+     */
+    List<T> getAll(ShardTable shardTable, List<String> columns);
 
     /**
      * 根据条件查询一条数据
@@ -137,6 +230,16 @@ public interface GetService<T, U, K> {
     T getOneByExample(U example, ShardTable shardTable);
 
     /**
+     * 根据条件查询一条数据
+     *
+     * @param example    查询条件参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    T getOneByExample(U example, ShardTable shardTable, List<String> columns);
+
+    /**
      * select in() 查询
      *
      * @param ids
@@ -146,6 +249,16 @@ public interface GetService<T, U, K> {
     List<T> getIn(List<K> ids, ShardTable shardTable);
 
     /**
+     * select in() 查询
+     *
+     * @param ids
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 记录列表
+     */
+    List<T> getIn(List<K> ids, ShardTable shardTable, List<String> columns);
+
+    /**
      * 分页查询
      *
      * @param pageInfo   分页参数
@@ -153,6 +266,16 @@ public interface GetService<T, U, K> {
      * @return 分页记录列表
      */
     List<T> getByPage(PageInfo pageInfo, ShardTable shardTable);
+
+    /**
+     * 分页查询
+     *
+     * @param pageInfo   分页参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, ShardTable shardTable, List<String> columns);
 
     /**
      * 分页查询
@@ -169,11 +292,34 @@ public interface GetService<T, U, K> {
      * 分页查询
      *
      * @param pageInfo   分页参数
+     * @param fieldName  where 筛选字段名
+     * @param keyword    where 筛选字段模糊匹配关键字
+     * @param columns    filter columns
+     * @param shardTable 分表对象
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, String fieldName, String keyword, ShardTable shardTable, List<String> columns);
+
+    /**
+     * 分页查询
+     *
+     * @param pageInfo   分页参数
      * @param example    where条件参数
      * @param shardTable 分表对象
      * @return 分页记录列表
      */
     List<T> getByPage(PageInfo pageInfo, U example, ShardTable shardTable);
+
+    /**
+     * 分页查询
+     *
+     * @param pageInfo   分页参数
+     * @param example    where条件参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(PageInfo pageInfo, U example, ShardTable shardTable, List<String> columns);
 
     /**
      * 获取分页参数对象
@@ -194,6 +340,15 @@ public interface GetService<T, U, K> {
     /**
      * 按Id分页查询
      *
+     * @param pageInfo 分页参数
+     * @param columns  filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, List<String> columns);
+
+    /**
+     * 按Id分页查询
+     *
      * @param pageInfo  分页参数
      * @param fieldName where 筛选字段名
      * @param keyword   where 筛选字段模糊匹配关键字
@@ -204,11 +359,32 @@ public interface GetService<T, U, K> {
     /**
      * 按Id分页查询
      *
+     * @param pageInfo  分页参数
+     * @param fieldName where 筛选字段名
+     * @param keyword   where 筛选字段模糊匹配关键字
+     * @param columns   filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, String fieldName, String keyword, List<String> columns);
+
+    /**
+     * 按Id分页查询
+     *
      * @param pageInfo 分页参数
      * @param example  where条件参数
      * @return 分页记录列表
      */
     List<T> getByPage(IdPageInfo pageInfo, U example);
+
+    /**
+     * 按Id分页查询
+     *
+     * @param pageInfo 分页参数
+     * @param example  where条件参数
+     * @param columns  filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, U example, List<String> columns);
 
     /**
      * 获取分页参数对象
@@ -232,6 +408,16 @@ public interface GetService<T, U, K> {
      * 按Id分页查询
      *
      * @param pageInfo   分页参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, ShardTable shardTable, List<String> columns);
+
+    /**
+     * 按Id分页查询
+     *
+     * @param pageInfo   分页参数
      * @param fieldName  where 筛选字段名
      * @param keyword    where 筛选字段模糊匹配关键字
      * @param shardTable 分表对象
@@ -243,9 +429,32 @@ public interface GetService<T, U, K> {
      * 按Id分页查询
      *
      * @param pageInfo   分页参数
+     * @param fieldName  where 筛选字段名
+     * @param keyword    where 筛选字段模糊匹配关键字
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, String fieldName, String keyword, ShardTable shardTable, List<String> columns);
+
+    /**
+     * 按Id分页查询
+     *
+     * @param pageInfo   分页参数
      * @param example    where条件参数
      * @param shardTable 分表对象
      * @return 分页记录列表
      */
     List<T> getByPage(IdPageInfo pageInfo, U example, ShardTable shardTable);
+
+    /**
+     * 按Id分页查询
+     *
+     * @param pageInfo   分页参数
+     * @param example    where条件参数
+     * @param shardTable 分表对象
+     * @param columns    filter columns
+     * @return 分页记录列表
+     */
+    List<T> getByPage(IdPageInfo pageInfo, U example, ShardTable shardTable, List<String> columns);
 }

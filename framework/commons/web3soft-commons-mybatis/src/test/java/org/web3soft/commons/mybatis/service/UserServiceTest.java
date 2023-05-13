@@ -190,6 +190,7 @@ public class UserServiceTest extends BaseTest {
         this.initRecords();
         final User user1 = this.userService.getById(6, List.of("id", "account"));
         Assertions.assertThat(user1.getId()).isEqualTo(6);
+        Assertions.assertThat(user1.getName()).isNull();
     }
 
     @Test

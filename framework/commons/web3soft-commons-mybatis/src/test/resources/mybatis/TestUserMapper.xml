@@ -65,13 +65,13 @@
         id,
         <include refid="Base_Column_List"/>
     </sql>
-    <sql id="Dynamic_Column_List">
-        <if test="columns != null">
+    <sql id="Select_Column_List">
+        <if test="columns != null and columns.size > 0">
             <foreach collection="columns" item="column" index="index" separator=",">
                 ${column}
             </foreach>
         </if>
-        <if test="columns == null">
+        <if test="columns == null or columns.size == 0">
             <include refid="Base_Column_List_WithId"/>
         </if>
     </sql>
@@ -289,7 +289,7 @@
     <!-- select -->
     <select id="selectById" resultMap="TestUserMap" parameterType="java.util.Map">
         select
-        <include refid="Dynamic_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id = #{id,jdbcType=INTEGER}
@@ -299,7 +299,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -311,7 +311,7 @@
     </select>
     <select id="selectOneByExample" resultMap="TestUserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -321,7 +321,7 @@
     </select>
     <select id="selectIn" resultMap="TestUserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id IN
@@ -345,7 +345,7 @@
     </select>
     <select id="selectByPager" resultMap="TestUserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -365,7 +365,7 @@
     </select>
     <select id="selectByIdPager" resultMap="TestUserMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
