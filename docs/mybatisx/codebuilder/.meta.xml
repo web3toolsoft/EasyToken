@@ -63,4 +63,13 @@
         <property name="encoding" value="${domain.encoding}"/>
         <property name="basePath" value="${domain.basePath}"/>
     </template>
+    <template>
+        <property name="configName" value="column"/>
+        <property name="configFile" value="column.ftl"/>
+        <property name="fileName" value="${domain.fileName}Column"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.data.column"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
 </templates>

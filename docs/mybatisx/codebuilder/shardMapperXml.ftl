@@ -8,7 +8,7 @@
             <#assign pkFieldName = field.fieldName />
             <#assign pkColumnName = field.columnName />
             <#assign pkJdbcType = field.jdbcType />
-            <#assign pkFullTypeName = field.fullTypeName />
+            <#assign pkFullTypeName =field.fullTypeName />
         </#list>
         <#list tableClass.baseFields as field>
             <result column="${field.columnName}" property="${field.fieldName}" jdbcType="${field.jdbcType}"/>
@@ -55,6 +55,16 @@
     <sql id="Base_Column_List_WithId">
         ${pkColumnName},
         <include refid="Base_Column_List"/>
+    </sql>
+    <sql id="Select_Column_List">
+        <if test="columns != null and columns.size > 0">
+            <foreach collection="columns" item="column" index="index" separator=",">
+                ${column}
+            </foreach>
+        </if>
+        <if test="columns == null or columns.size == 0">
+            <include refid="Base_Column_List_WithId"/>
+        </if>
     </sql>
     <sql id="Insert_Columns">
         <#list tableClass.baseFields as field>
@@ -230,7 +240,7 @@
     <!-- select -->
     <select id="selectById" resultMap="${tableClass.shortClassName}Map" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where ${pkColumnName} = <#noparse>#</#noparse>{id,jdbcType=${pkJdbcType}}
@@ -240,7 +250,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -252,7 +262,7 @@
     </select>
     <select id="selectOneByExample" resultMap="${tableClass.shortClassName}Map" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -262,7 +272,7 @@
     </select>
     <select id="selectIn" resultMap="${tableClass.shortClassName}Map" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id IN
@@ -286,7 +296,7 @@
     </select>
     <select id="selectByPager" resultMap="${tableClass.shortClassName}Map" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -306,7 +316,7 @@
     </select>
     <select id="selectByIdPager" resultMap="${tableClass.shortClassName}Map" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
