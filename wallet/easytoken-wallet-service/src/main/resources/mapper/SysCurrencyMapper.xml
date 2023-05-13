@@ -11,7 +11,7 @@
         <result column="type" property="type" jdbcType="INTEGER"/>
         <result column="logo_url" property="logoUrl" jdbcType="VARCHAR"/>
         <result column="created_at" property="createdAt" jdbcType="TIMESTAMP"/>
-            <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
+        <result column="updated_at" property="updatedAt" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -47,7 +47,7 @@
         sys_currency
     </sql>
     <sql id="Base_Column_List">
-            code,
+        code,
             symbol,
             name,
             status,
@@ -59,69 +59,80 @@
         id,
         <include refid="Base_Column_List"/>
     </sql>
+    <sql id="Select_Column_List">
+        <if test="columns != null and columns.size > 0">
+            <foreach collection="columns" item="column" index="index" separator=",">
+                com.baomidou.plugin.idea.mybatisx.generate.dto.ModuleInfoGo@4c0eaa
+            </foreach>
+        </if>
+        <if test="columns == null or columns.size == 0">
+            <include refid="Base_Column_List_WithId"/>
+        </if>
+    </sql>
     <sql id="Insert_Columns">
-            <if test="record.code != null">code,</if>
-            <if test="record.symbol != null">symbol,</if>
-            <if test="record.name != null">name,</if>
-            <if test="record.status != null">status,</if>
-            <if test="record.type != null">type,</if>
-            <if test="record.logoUrl != null">logo_url,</if>
-            <if test="record.createdAt != null">created_at,</if>
-            <if test="record.updatedAt != null">updated_at,</if>
+        <if test="record.code != null">code,</if>
+        <if test="record.symbol != null">symbol,</if>
+        <if test="record.name != null">name,</if>
+        <if test="record.status != null">status,</if>
+        <if test="record.type != null">type,</if>
+        <if test="record.logoUrl != null">logo_url,</if>
+        <if test="record.createdAt != null">created_at,</if>
+        <if test="record.updatedAt != null">updated_at,</if>
     </sql>
     <sql id="Insert_Columns_WithId">
         <if test="record.id != null">id,</if>
         <include refid="Insert_Columns"/>
     </sql>
     <sql id="Insert_Values">
-            <if test="record.code != null">#{record.code,jdbcType=VARCHAR},</if>
-            <if test="record.symbol != null">#{record.symbol,jdbcType=VARCHAR},</if>
-            <if test="record.name != null">#{record.name,jdbcType=VARCHAR},</if>
-            <if test="record.status != null">#{record.status,jdbcType=INTEGER},</if>
-            <if test="record.type != null">#{record.type,jdbcType=INTEGER},</if>
-            <if test="record.logoUrl != null">#{record.logoUrl,jdbcType=VARCHAR},</if>
-            <if test="record.createdAt != null">#{record.createdAt,jdbcType=TIMESTAMP},</if>
-            <if test="record.updatedAt != null">#{record.updatedAt,jdbcType=TIMESTAMP},</if>
+        <if test="record.code != null">#{record.code,jdbcType=VARCHAR},</if>
+        <if test="record.symbol != null">#{record.symbol,jdbcType=VARCHAR},</if>
+        <if test="record.name != null">#{record.name,jdbcType=VARCHAR},</if>
+        <if test="record.status != null">#{record.status,jdbcType=INTEGER},</if>
+        <if test="record.type != null">#{record.type,jdbcType=INTEGER},</if>
+        <if test="record.logoUrl != null">#{record.logoUrl,jdbcType=VARCHAR},</if>
+        <if test="record.createdAt != null">#{record.createdAt,jdbcType=TIMESTAMP},</if>
+        <if test="record.updatedAt != null">#{record.updatedAt,jdbcType=TIMESTAMP},</if>
     </sql>
     <sql id="Insert_Values_WithId">
         <if test="record.id != null">#{record.id,jdbcType=INTEGER},</if>
         <include refid="Insert_Values"/>
     </sql>
     <sql id="Batch_Insert_Values">
-            #{record.code,jdbcType=VARCHAR},
-            #{record.symbol,jdbcType=VARCHAR},
-            #{record.name,jdbcType=VARCHAR},
-            #{record.status,jdbcType=INTEGER},
-            #{record.type,jdbcType=INTEGER},
-            #{record.logoUrl,jdbcType=VARCHAR},
-            #{record.createdAt,jdbcType=TIMESTAMP},
-            #{record.updatedAt,jdbcType=TIMESTAMP},
+        #{record.code,jdbcType=VARCHAR},
+        #{record.symbol,jdbcType=VARCHAR},
+        #{record.name,jdbcType=VARCHAR},
+        #{record.status,jdbcType=INTEGER},
+        #{record.type,jdbcType=INTEGER},
+        #{record.logoUrl,jdbcType=VARCHAR},
+        #{record.createdAt,jdbcType=TIMESTAMP},
+        #{record.updatedAt,jdbcType=TIMESTAMP},
     </sql>
     <sql id="Batch_Insert_Values_WithId">
         #{record.id,jdbcType=INTEGER},
         <include refid="Batch_Insert_Values"/>
     </sql>
     <sql id="Update_Set_From_Bean">
-            <if test="record.code != null">code = #{record.code,jdbcType=VARCHAR} ,</if>
-            <if test="record.symbol != null">symbol = #{record.symbol,jdbcType=VARCHAR} ,</if>
-            <if test="record.name != null">name = #{record.name,jdbcType=VARCHAR} ,</if>
-            <if test="record.status != null">status = #{record.status,jdbcType=INTEGER} ,</if>
-            <if test="record.type != null">type = #{record.type,jdbcType=INTEGER} ,</if>
-            <if test="record.logoUrl != null">logo_url = #{record.logoUrl,jdbcType=VARCHAR} ,</if>
-            <if test="record.createdAt != null">created_at = #{record.createdAt,jdbcType=TIMESTAMP} ,</if>
-            <if test="record.updatedAt != null">updated_at = #{record.updatedAt,jdbcType=TIMESTAMP} ,</if>
+        <if test="record.code != null">code = #{record.code,jdbcType=VARCHAR} ,</if>
+        <if test="record.symbol != null">symbol = #{record.symbol,jdbcType=VARCHAR} ,</if>
+        <if test="record.name != null">name = #{record.name,jdbcType=VARCHAR} ,</if>
+        <if test="record.status != null">status = #{record.status,jdbcType=INTEGER} ,</if>
+        <if test="record.type != null">type = #{record.type,jdbcType=INTEGER} ,</if>
+        <if test="record.logoUrl != null">logo_url = #{record.logoUrl,jdbcType=VARCHAR} ,</if>
+        <if test="record.createdAt != null">created_at = #{record.createdAt,jdbcType=TIMESTAMP} ,</if>
+        <if test="record.updatedAt != null">updated_at = #{record.updatedAt,jdbcType=TIMESTAMP} ,</if>
     </sql>
     <sql id="On_Duplicate_Key_Update">
         ON DUPLICATE KEY
         UPDATE
-            code = VALUES (code),
-            symbol = VALUES (symbol),
-            name = VALUES (name),
-            status = VALUES (status),
-            type = VALUES (type),
-            logo_url = VALUES (logo_url),
-            created_at = VALUES (created_at),
-            updated_at = VALUES (updated_at)    </sql>
+            code =
+        VALUES (code), symbol =
+        VALUES (symbol), name =
+        VALUES (name), status =
+        VALUES (status), type =
+        VALUES (type), logo_url =
+        VALUES (logo_url), created_at =
+        VALUES (created_at), updated_at =
+        VALUES (updated_at)    </sql>
     <!-- insert -->
     <insert id="insert" parameterType="java.util.Map">
         <selectKey resultType="java.lang.Integer" keyProperty="record.id" order="AFTER">
@@ -257,7 +268,7 @@
     <!-- select -->
     <select id="selectById" resultMap="SysCurrencyMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id = #{id,jdbcType=INTEGER}
@@ -267,7 +278,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -279,7 +290,7 @@
     </select>
     <select id="selectOneByExample" resultMap="SysCurrencyMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -289,7 +300,7 @@
     </select>
     <select id="selectIn" resultMap="SysCurrencyMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id IN
@@ -313,7 +324,7 @@
     </select>
     <select id="selectByPager" resultMap="SysCurrencyMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -333,7 +344,7 @@
     </select>
     <select id="selectByIdPager" resultMap="SysCurrencyMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">

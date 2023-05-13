@@ -75,6 +75,16 @@
         id,
         <include refid="Base_Column_List"/>
     </sql>
+    <sql id="Select_Column_List">
+        <if test="columns != null and columns.size > 0">
+            <foreach collection="columns" item="column" index="index" separator=",">
+                com.baomidou.plugin.idea.mybatisx.generate.dto.ModuleInfoGo@5dafbe06
+            </foreach>
+        </if>
+        <if test="columns == null or columns.size == 0">
+            <include refid="Base_Column_List_WithId"/>
+        </if>
+    </sql>
     <sql id="Insert_Columns">
         <if test="record.parentId != null">parent_id,</if>
         <if test="record.code != null">code,</if>
@@ -314,7 +324,7 @@
     <!-- select -->
     <select id="selectById" resultMap="SysChainMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id = #{id,jdbcType=INTEGER}
@@ -324,7 +334,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -336,7 +346,7 @@
     </select>
     <select id="selectOneByExample" resultMap="SysChainMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -346,7 +356,7 @@
     </select>
     <select id="selectIn" resultMap="SysChainMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id IN
@@ -370,7 +380,7 @@
     </select>
     <select id="selectByPager" resultMap="SysChainMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -390,7 +400,7 @@
     </select>
     <select id="selectByIdPager" resultMap="SysChainMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">

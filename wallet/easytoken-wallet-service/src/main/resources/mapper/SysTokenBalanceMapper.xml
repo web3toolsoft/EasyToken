@@ -43,7 +43,7 @@
         sys_token_balance
     </sql>
     <sql id="Base_Column_List">
-            token_id,
+        token_id,
             balance,
             created_at,
             updated_at    </sql>
@@ -51,49 +51,60 @@
         id,
         <include refid="Base_Column_List"/>
     </sql>
+    <sql id="Select_Column_List">
+        <if test="columns != null and columns.size > 0">
+            <foreach collection="columns" item="column" index="index" separator=",">
+                com.baomidou.plugin.idea.mybatisx.generate.dto.ModuleInfoGo@7c5e036a
+            </foreach>
+        </if>
+        <if test="columns == null or columns.size == 0">
+            <include refid="Base_Column_List_WithId"/>
+        </if>
+    </sql>
     <sql id="Insert_Columns">
-            <if test="record.tokenId != null">token_id,</if>
-            <if test="record.balance != null">balance,</if>
-            <if test="record.createdAt != null">created_at,</if>
-            <if test="record.updatedAt != null">updated_at,</if>
+        <if test="record.tokenId != null">token_id,</if>
+        <if test="record.balance != null">balance,</if>
+        <if test="record.createdAt != null">created_at,</if>
+        <if test="record.updatedAt != null">updated_at,</if>
     </sql>
     <sql id="Insert_Columns_WithId">
         <if test="record.id != null">id,</if>
         <include refid="Insert_Columns"/>
     </sql>
     <sql id="Insert_Values">
-            <if test="record.tokenId != null">#{record.tokenId,jdbcType=INTEGER},</if>
-            <if test="record.balance != null">#{record.balance,jdbcType=DECIMAL},</if>
-            <if test="record.createdAt != null">#{record.createdAt,jdbcType=TIMESTAMP},</if>
-            <if test="record.updatedAt != null">#{record.updatedAt,jdbcType=TIMESTAMP},</if>
+        <if test="record.tokenId != null">#{record.tokenId,jdbcType=INTEGER},</if>
+        <if test="record.balance != null">#{record.balance,jdbcType=DECIMAL},</if>
+        <if test="record.createdAt != null">#{record.createdAt,jdbcType=TIMESTAMP},</if>
+        <if test="record.updatedAt != null">#{record.updatedAt,jdbcType=TIMESTAMP},</if>
     </sql>
     <sql id="Insert_Values_WithId">
         <if test="record.id != null">#{record.id,jdbcType=INTEGER},</if>
         <include refid="Insert_Values"/>
     </sql>
     <sql id="Batch_Insert_Values">
-            #{record.tokenId,jdbcType=INTEGER},
-            #{record.balance,jdbcType=DECIMAL},
-            #{record.createdAt,jdbcType=TIMESTAMP},
-            #{record.updatedAt,jdbcType=TIMESTAMP},
+        #{record.tokenId,jdbcType=INTEGER},
+        #{record.balance,jdbcType=DECIMAL},
+        #{record.createdAt,jdbcType=TIMESTAMP},
+        #{record.updatedAt,jdbcType=TIMESTAMP},
     </sql>
     <sql id="Batch_Insert_Values_WithId">
         #{record.id,jdbcType=INTEGER},
         <include refid="Batch_Insert_Values"/>
     </sql>
     <sql id="Update_Set_From_Bean">
-            <if test="record.tokenId != null">token_id = #{record.tokenId,jdbcType=INTEGER} ,</if>
-            <if test="record.balance != null">balance = #{record.balance,jdbcType=DECIMAL} ,</if>
-            <if test="record.createdAt != null">created_at = #{record.createdAt,jdbcType=TIMESTAMP} ,</if>
-            <if test="record.updatedAt != null">updated_at = #{record.updatedAt,jdbcType=TIMESTAMP} ,</if>
+        <if test="record.tokenId != null">token_id = #{record.tokenId,jdbcType=INTEGER} ,</if>
+        <if test="record.balance != null">balance = #{record.balance,jdbcType=DECIMAL} ,</if>
+        <if test="record.createdAt != null">created_at = #{record.createdAt,jdbcType=TIMESTAMP} ,</if>
+        <if test="record.updatedAt != null">updated_at = #{record.updatedAt,jdbcType=TIMESTAMP} ,</if>
     </sql>
     <sql id="On_Duplicate_Key_Update">
         ON DUPLICATE KEY
         UPDATE
-            token_id = VALUES (token_id),
-            balance = VALUES (balance),
-            created_at = VALUES (created_at),
-            updated_at = VALUES (updated_at)    </sql>
+            token_id =
+        VALUES (token_id), balance =
+        VALUES (balance), created_at =
+        VALUES (created_at), updated_at =
+        VALUES (updated_at)    </sql>
     <!-- insert -->
     <insert id="insert" parameterType="java.util.Map">
         <selectKey resultType="java.lang.Integer" keyProperty="record.id" order="AFTER">
@@ -229,7 +240,7 @@
     <!-- select -->
     <select id="selectById" resultMap="SysTokenBalanceMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id = #{id,jdbcType=INTEGER}
@@ -239,7 +250,7 @@
         <if test="example != null and example.distinct">
             distinct
         </if>
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -251,7 +262,7 @@
     </select>
     <select id="selectOneByExample" resultMap="SysTokenBalanceMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -261,7 +272,7 @@
     </select>
     <select id="selectIn" resultMap="SysTokenBalanceMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         where id IN
@@ -285,7 +296,7 @@
     </select>
     <select id="selectByPager" resultMap="SysTokenBalanceMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List_WithId"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
@@ -305,7 +316,7 @@
     </select>
     <select id="selectByIdPager" resultMap="SysTokenBalanceMap" parameterType="java.util.Map">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Select_Column_List"/>
         from
         <include refid="Table_Name"/>
         <if test="example != null">
