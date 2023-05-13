@@ -59,7 +59,7 @@
     <sql id="Select_Column_List">
         <if test="columns != null and columns.size > 0">
             <foreach collection="columns" item="column" index="index" separator=",">
-                ${column}
+                <#noparse>$</#noparse>{column}
             </foreach>
         </if>
         <if test="columns == null or columns.size == 0">
