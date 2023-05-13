@@ -5,6 +5,7 @@ import org.web3soft.commons.mybatis.data.SelectRepository;
 import org.web3soft.commons.mybatis.pager.IdPageInfo;
 import org.web3soft.commons.mybatis.pager.PageInfo;
 import org.web3soft.commons.mybatis.sharding.ShardTable;
+import org.web3soft.commons.mybatis.util.SqlInjectionUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +17,6 @@ import java.util.Map;
  * @param <Example>
  * @param <Type>    Key字段数据类型(Integer,Long,String等)
  * @author Tom Deng
- *
  */
 public abstract class AbstractGetService<Dao extends SelectRepository<Po, Example, Type>, Po, Example, Type>
         implements GetService<Po, Example, Type> {
@@ -99,7 +99,7 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword, final List<String> columns) {
-        if (StringUtils.isBlank(fieldName)) {
+        if (StringUtils.isBlank(fieldName) || SqlInjectionUtils.check(fieldName)) {
             return this.getByPage(pageInfo, (Example) null, columns);
         }
         return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), columns);
@@ -193,7 +193,7 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     @Override
     public List<Po> getByPage(final PageInfo pageInfo, final String fieldName, final String keyword, final ShardTable shardTable,
                               final List<String> columns) {
-        if (StringUtils.isBlank(fieldName)) {
+        if (StringUtils.isBlank(fieldName) || SqlInjectionUtils.check(fieldName)) {
             return this.getByPage(pageInfo, null, shardTable, columns);
         }
         return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable, columns);
@@ -247,7 +247,7 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
 
     @Override
     public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword, final List<String> columns) {
-        if (StringUtils.isBlank(fieldName)) {
+        if (StringUtils.isBlank(fieldName) || SqlInjectionUtils.check(fieldName)) {
             return this.getByPage(pageInfo, (Example) null, columns);
         }
         return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), columns);
@@ -304,7 +304,7 @@ public abstract class AbstractGetService<Dao extends SelectRepository<Po, Exampl
     @Override
     public List<Po> getByPage(final IdPageInfo pageInfo, final String fieldName, final String keyword, final ShardTable shardTable,
                               final List<String> columns) {
-        if (StringUtils.isBlank(fieldName)) {
+        if (StringUtils.isBlank(fieldName) || SqlInjectionUtils.check(fieldName)) {
             return this.getByPage(pageInfo, null, shardTable, columns);
         }
         return this.getByPage(pageInfo, this.getPageExample(fieldName, keyword), shardTable, columns);
