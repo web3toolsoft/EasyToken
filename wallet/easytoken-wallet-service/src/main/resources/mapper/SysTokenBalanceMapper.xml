@@ -54,7 +54,7 @@
     <sql id="Select_Column_List">
         <if test="columns != null and columns.size > 0">
             <foreach collection="columns" item="column" index="index" separator=",">
-                com.baomidou.plugin.idea.mybatisx.generate.dto.ModuleInfoGo@7c5e036a
+                ${column}
             </foreach>
         </if>
         <if test="columns == null or columns.size == 0">
