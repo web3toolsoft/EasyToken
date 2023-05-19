@@ -19,8 +19,8 @@ import java.util.Locale;
 public class CustomMessageSource implements MessageSource {
     private final MessageSourceRepository repository;
 
-    public CustomMessageSource(final MessageSourceRepository messageSourceRepository) {
-        this.repository = messageSourceRepository;
+    public CustomMessageSource(final MessageSourceRepository repository) {
+        this.repository = repository;
     }
 
     @Nullable
@@ -51,7 +51,7 @@ public class CustomMessageSource implements MessageSource {
         final MessageFormat messageFormat = new MessageFormat(msg, locale);
         return messageFormat.format(argsToUse);
     }
-    
+
     @Override
     public String getMessage(@Nullable final String code, @Nullable final Object[] args, @Nullable final Locale locale)
             throws NoSuchMessageException {
