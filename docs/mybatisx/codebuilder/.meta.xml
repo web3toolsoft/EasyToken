@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates>
+    <template>
+        <property name="configName" value="serviceInterface"/>
+        <property name="configFile" value="serviceInterface.ftl"/>
+        <property name="fileName" value="${domain.fileName}Service"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.service"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+    <template>
+        <property name="configName" value="serviceImpl"/>
+        <property name="configFile" value="serviceImpl.ftl"/>
+        <property name="fileName" value="${domain.fileName}ServiceImpl"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.service.impl"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+    <template>
+        <property name="configName" value="repository"/>
+        <property name="configFile" value="repository.ftl"/>
+        <property name="fileName" value="${domain.fileName}Repository"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.data.repository"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+    <template>
+        <property name="configName" value="example"/>
+        <property name="configFile" value="example.ftl"/>
+        <property name="fileName" value="${domain.fileName}Example"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.data.example"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+    <template>
+        <property name="configName" value="mapperXml"/>
+        <property name="configFile" value="mapperXml.ftl"/>
+        <property name="fileName" value="${domain.fileName}Mapper"/>
+        <property name="suffix" value=".xml"/>
+        <property name="packageName" value="mapper"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="src/main/resources"/>
+    </template>
+    <template>
+        <property name="configName" value="shardMapperXml"/>
+        <property name="configFile" value="shardMapperXml.ftl"/>
+        <property name="fileName" value="Shard${domain.fileName}Mapper"/>
+        <property name="suffix" value=".xml"/>
+        <property name="packageName" value="mapper"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="src/main/resources"/>
+    </template>
+    <template>
+        <property name="configName" value="domain"/>
+        <property name="configFile" value="domain.ftl"/>
+        <property name="fileName" value="${domain.fileName}"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.domain"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+    <template>
+        <property name="configName" value="column"/>
+        <property name="configFile" value="column.ftl"/>
+        <property name="fileName" value="${domain.fileName}Column"/>
+        <property name="suffix" value=".java"/>
+        <property name="packageName" value="${domain.basePackage}.data.column"/>
+        <property name="encoding" value="${domain.encoding}"/>
+        <property name="basePath" value="${domain.basePath}"/>
+    </template>
+</templates>

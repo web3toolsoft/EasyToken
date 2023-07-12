@@ -1,0 +1,12 @@
+logging:
+    config: classpath:conf/logging/logback-spring.xml
+spring:
+    datasource:
+        url: 'jdbc:mysql://localhost:3306/mybatis_sample?characterEncoding=UTF-8&autoReconnect=true&rewriteBatchedStatements=true&allowMultiQueries=true'
+        username: 'root'
+        password: 'dddd'
+        name: 'mybatis_sample'
+        hikari:
+            minimum-idle: 5
+            maximum-pool-size: 20
+            connection-test-query: 'SELECT 1'

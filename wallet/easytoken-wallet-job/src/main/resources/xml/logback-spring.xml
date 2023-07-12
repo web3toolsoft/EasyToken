@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <springProperty scope="context" name="LOGGING_PATH" source="logging.file.path"/>
+    <springProperty scope="context" name="LOGGING_LEVEL_DEFAULT" source="logging.level.default"/>
+    <springProperty scope="context" name="LOGGING_LEVEL_EASYTOKEN" source="logging.level.easytoken"/>
+    <springProperty scope="context" name="LOGGING_LEVEL_MYBATIS" source="logging.level.mybatis"/>
+    <springProperty scope="context" name="LOGGING_LEVEL_COMMONS" source="logging.level.commons"/>
+    <springProperty scope="context" name="web3soft_APP_ENV_NAME" source="web3soft.app.env.name"/>
+    <!-- Output full logs to file -->
+    <appender name="FILE_ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGGING_PATH}/info.log</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGGING_PATH}/archive/history_info.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+            <maxHistory>1</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>500MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Output WARN, ERROR logs to file -->
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOGGING_PATH}/error.log</file>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOGGING_PATH}/archive/history_error.%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+            <maxHistory>1</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>500MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!--direct log messages to stdout -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_FILE_ALL" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="FILE_ALL"/>
+    </appender>
+
+    <appender name="ASYNC_FILE_ERROR" class="ch.qos.logback.classic.AsyncAppender">
+        <discardingThreshold>0</discardingThreshold>
+        <neverBlock>true</neverBlock>
+        <appender-ref ref="FILE_ERROR"/>
+    </appender>
+
+    <logger name="org.web3soft.easytoken" level="${LOGGING_LEVEL_EASYTOKEN}"/>
+    <logger name="org.web3soft.commons" level="${LOGGING_LEVEL_COMMONS}"/>
+    <logger name="org.mybatis" level="${LOGGING_LEVEL_MYBATIS}"/>
+
+    <root level="${LOGGING_LEVEL_DEFAULT}">
+        <appender-ref ref="ASYNC_FILE_ALL"/>
+        <appender-ref ref="ASYNC_FILE_ERROR"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>

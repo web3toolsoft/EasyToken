@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.web3soft.easytoken</groupId>
+        <artifactId>easytoken-parent</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>easytoken-wallet</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>easytoken-wallet-core</module>
+        <module>easytoken-wallet-client</module>
+        <module>easytoken-wallet-dto</module>
+        <module>easytoken-wallet-job</module>
+        <module>easytoken-wallet-service</module>
+        <module>easytoken-wallet-api</module>
+    </modules>
+</project>
