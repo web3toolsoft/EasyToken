@@ -16,4 +16,35 @@
         <module>web3soft-spring-boot-autoconfigure</module>
         <module>web3soft-spring-boot-starters</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-autoconfigure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-actuator-autoconfigure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-actuator</artifactId>
+                <version>${revision}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

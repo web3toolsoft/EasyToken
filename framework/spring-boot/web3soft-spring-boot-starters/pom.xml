@@ -12,5 +12,10 @@
     <packaging>pom</packaging>
     <modules>
         <module>web3soft-mybatis-spring-boot-starter</module>
+        <module>web3soft-web-spring-boot-starter</module>
+        <module>web3soft-auth-redis-spring-boot-starter</module>
+        <module>web3soft-fileupload-spring-boot-starter</module>
+        <module>web3soft-kms-spring-boot-starter</module>
+        <module>web3soft-security-spring-boot-starter</module>
     </modules>
 </project>

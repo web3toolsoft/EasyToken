@@ -11,7 +11,6 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.lang.NonNull;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -23,7 +22,6 @@ import org.web3soft.commons.ratelimiter.limiter.RedisRateLimiter;
 /**
  * @author web3soft-team
  */
-@Order(90)
 @AutoConfiguration
 @EnableConfigurationProperties({RateLimiterProperties.class})
 @ConditionalOnClass(RateLimiter.class)

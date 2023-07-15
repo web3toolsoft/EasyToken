@@ -8,7 +8,7 @@
         <artifactId>web3soft-spring-boot-starters</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>web3soft-mybatis-spring-boot-starter</artifactId>
+    <artifactId>web3soft-fileupload-spring-boot-starter</artifactId>
     <packaging>pom</packaging>
     <dependencies>
         <dependency>
@@ -21,7 +21,15 @@
         </dependency>
         <dependency>
             <groupId>org.web3soft.commons</groupId>
-            <artifactId>web3soft-commons-mybatis</artifactId>
+            <artifactId>web3soft-commons-fileupload</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
         </dependency>
     </dependencies>
 </project>

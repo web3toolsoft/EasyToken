@@ -12,7 +12,6 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.web3soft.commons.security.interceptor.CsrfInterceptor;
@@ -21,7 +20,6 @@ import org.web3soft.commons.security.xss.XssFilter;
 /**
  * @author web3soft-team
  */
-@Order(98)
 @AutoConfiguration
 @ConditionalOnClass({XssFilter.class, CsrfInterceptor.class})
 @EnableConfigurationProperties({
