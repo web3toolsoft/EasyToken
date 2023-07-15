@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "web3soft.web.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable web support auto config.",
+      "defaultValue": true
+    },
+    {
+      "name": "web3soft.web.init-data-filter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable web support auto config.",
+      "defaultValue": false
+    },
+    {
+      "name": "web3soft.web.servlet-container.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable web servlet container.",
+      "defaultValue": true
+    },
+    {
+      "name": "web3soft.web.message-converter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Whether to enable custom message converter.",
+      "defaultValue": true
+    }
+  ]
+}

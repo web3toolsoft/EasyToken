@@ -7,6 +7,8 @@ import org.web3soft.commons.auth.exception.SessionExpiredException;
 import org.web3soft.commons.auth.exception.TokenInvalidException;
 import org.web3soft.commons.auth.exception.UserForbiddenException;
 import org.web3soft.commons.auth.model.TokenUserInfo;
+import org.web3soft.commons.auth.service.SessionService;
+import org.web3soft.commons.auth.token.TokenProvider;
 
 /**
  * @author web3soft-team
@@ -14,7 +16,8 @@ import org.web3soft.commons.auth.model.TokenUserInfo;
 @Slf4j
 public class HmacTokenInterceptor extends AbstractTokenInterceptor {
 
-    public HmacTokenInterceptor() {
+    public HmacTokenInterceptor(final TokenProvider tokenProvider, final SessionService<TokenUserInfo> sessionService) {
+        super(tokenProvider, sessionService);
     }
 
     @Override

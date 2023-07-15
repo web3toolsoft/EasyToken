@@ -1,13 +1,10 @@
 package org.web3soft.commons.auth.interceptor;
 
-import org.web3soft.commons.dictionary.consts.AppEnvConsts;
-import org.web3soft.commons.dictionary.consts.UserAuthConsts;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.AsyncHandlerInterceptor;
 import org.springframework.web.util.WebUtils;
 import org.web3soft.commons.auth.consts.TokenConsts;
@@ -19,6 +16,8 @@ import org.web3soft.commons.auth.model.TokenUserInfo;
 import org.web3soft.commons.auth.service.SessionService;
 import org.web3soft.commons.auth.token.TokenProvider;
 import org.web3soft.commons.auth.util.ValidateUtils;
+import org.web3soft.commons.dictionary.consts.AppEnvConsts;
+import org.web3soft.commons.dictionary.consts.UserAuthConsts;
 
 import java.util.Objects;
 
@@ -27,12 +26,12 @@ import java.util.Objects;
  */
 @Slf4j
 public abstract class AbstractTokenInterceptor implements AsyncHandlerInterceptor {
-    @Autowired
     protected TokenProvider tokenProvider;
-    @Autowired
-    protected SessionService sessionService;
+    protected SessionService<?> sessionService;
 
-    protected AbstractTokenInterceptor() {
+    protected AbstractTokenInterceptor(final TokenProvider tokenProvider, final SessionService<?> sessionService) {
+        this.tokenProvider = tokenProvider;
+        this.sessionService = sessionService;
     }
 
     @Override

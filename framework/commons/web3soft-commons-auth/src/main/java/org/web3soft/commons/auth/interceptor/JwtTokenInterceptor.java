@@ -7,6 +7,8 @@ import org.web3soft.commons.auth.exception.SessionExpiredException;
 import org.web3soft.commons.auth.exception.TokenInvalidException;
 import org.web3soft.commons.auth.exception.UserForbiddenException;
 import org.web3soft.commons.auth.model.TokenUserInfo;
+import org.web3soft.commons.auth.service.SessionService;
+import org.web3soft.commons.auth.token.TokenProvider;
 import org.web3soft.commons.auth.token.jwt.exception.JwtTokenExpiredException;
 import org.web3soft.commons.auth.token.jwt.model.JwtPublicClaims;
 import org.web3soft.commons.auth.token.jwt.provider.JwtTokenProvider;
@@ -17,7 +19,8 @@ import org.web3soft.commons.auth.token.jwt.provider.JwtTokenProvider;
 @Slf4j
 public class JwtTokenInterceptor extends AbstractTokenInterceptor {
 
-    public JwtTokenInterceptor() {
+    public JwtTokenInterceptor(final TokenProvider tokenProvider, final SessionService<TokenUserInfo> sessionService) {
+        super(tokenProvider, sessionService);
     }
 
     @Override

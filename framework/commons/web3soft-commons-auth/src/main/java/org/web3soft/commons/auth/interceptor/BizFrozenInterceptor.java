@@ -16,9 +16,9 @@ import org.web3soft.commons.dictionary.consts.UserAuthConsts;
 @Slf4j
 public class BizFrozenInterceptor implements AsyncHandlerInterceptor {
     private final BizFrozenConfig frozenConfig;
-    private final SessionService sessionService;
+    private final SessionService<TokenUserInfo> sessionService;
 
-    public BizFrozenInterceptor(final BizFrozenConfig frozenConfig, final SessionService sessionService) {
+    public BizFrozenInterceptor(final BizFrozenConfig frozenConfig, final SessionService<TokenUserInfo> sessionService) {
         this.frozenConfig = frozenConfig;
         this.sessionService = sessionService;
     }

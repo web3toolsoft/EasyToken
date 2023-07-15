@@ -1,0 +1,20 @@
+org.web3soft.spring.boot.autoconfigure.fileupload.oss.OssAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.fileupload.s3.S3AutoConfiguration
+org.web3soft.spring.boot.autoconfigure.security.SecurityAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.web.WebSupportAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.auth.session.SessionAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.feign.MyFeignAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.auth.JwtTokenAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.auth.HmacTokenAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.auth.BizFrozenAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.env.AppEnvAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.i18n.MyMessageSourceAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.ratelimiter.RateLimiterAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.security.DigestCryptAutoConfiguration
+#
+# Bootstrap components
+#
+org.web3soft.spring.boot.autoconfigure.kms.properties.AliyunKmsPropertySourceAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.kms.properties.AwsKmsPropertySourceAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.kms.encryptor.AliyunKmsEncryptionAutoConfiguration
+org.web3soft.spring.boot.autoconfigure.kms.encryptor.AwsKmsEncryptionAutoConfiguration

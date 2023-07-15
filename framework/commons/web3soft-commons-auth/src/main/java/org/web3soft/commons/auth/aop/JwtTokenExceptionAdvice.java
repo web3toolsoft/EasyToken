@@ -1,9 +1,5 @@
 package org.web3soft.commons.auth.aop;
 
-import org.web3soft.commons.dictionary.consts.AppEnvConsts;
-import org.web3soft.commons.support.enums.HttpStatusCode;
-import org.web3soft.commons.support.model.ResultEntity;
-import org.web3soft.commons.support.util.ResultUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +12,14 @@ import org.web3soft.commons.auth.enums.AuthErrorCode;
 import org.web3soft.commons.auth.exception.AbnormalAccessException;
 import org.web3soft.commons.auth.exception.BizFrozenException;
 import org.web3soft.commons.auth.exception.SessionExpiredException;
+import org.web3soft.commons.auth.exception.TokenInvalidException;
 import org.web3soft.commons.auth.exception.TokenNotFoundException;
 import org.web3soft.commons.auth.exception.UserForbiddenException;
+import org.web3soft.commons.auth.token.jwt.exception.JwtTokenExpiredException;
+import org.web3soft.commons.dictionary.consts.AppEnvConsts;
+import org.web3soft.commons.support.enums.HttpStatusCode;
+import org.web3soft.commons.support.model.ResultEntity;
+import org.web3soft.commons.support.util.ResultUtils;
 
 /**
  * 全局安全相关异常处理器
@@ -27,10 +29,10 @@ import org.web3soft.commons.auth.exception.UserForbiddenException;
 @Slf4j
 @Order(1)
 @RestControllerAdvice
-//@ConditionalOnProperty(
-//        prefix = "web3soft.auth.hmac.exception-advice", name = "enabled", matchIfMissing = true
-//)
-public class HmacTokenSecurityExceptionAdvice {
+/*@ConditionalOnProperty(
+        prefix = "web3soft.auth.jwt.exception-advice", name = "enabled", matchIfMissing = true
+)*/
+public class JwtTokenExceptionAdvice {
     /**
      * 没有找到token,未授权
      */
@@ -40,7 +42,7 @@ public class HmacTokenSecurityExceptionAdvice {
     public ResultEntity<?> handleTokenNotFoundException(final TokenNotFoundException e,
                                                         final HttpServletRequest request,
                                                         final HttpServletResponse response) {
-        log.warn("TokenNotFoundException App:{},Url:{},Message:{}",
+        log.warn("JwtTokenNotFoundException App:{},Url:{},Message:{}",
                 AppEnvConsts.APP_NAME, request.getRequestURL(), e.getMessage());
         return ResultUtils.failure(HttpStatusCode.UNAUTHORIZED);
     }
@@ -57,6 +59,34 @@ public class HmacTokenSecurityExceptionAdvice {
         log.warn("SessionExpiredException App:{},Url:{},Message:{}",
                 AppEnvConsts.APP_NAME, request.getRequestURL(), e.getMessage());
         return ResultUtils.failure(AuthErrorCode.EXPIRATION);
+    }
+
+    /**
+     * token过期
+     */
+    @Order(3)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(JwtTokenExpiredException.class)
+    public ResultEntity<?> handleJwtTokenExpiredException(final JwtTokenExpiredException e,
+                                                       final HttpServletRequest request,
+                                                       final HttpServletResponse response) {
+        log.warn("JwtTokenExpiredException App:{},Url:{},Message:{}",
+                AppEnvConsts.APP_NAME, request.getRequestURL(), e.getMessage());
+        return ResultUtils.failure(AuthErrorCode.EXPIRATION);
+    }
+
+    /**
+     * token验证失败
+     */
+    @Order(4)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(TokenInvalidException.class)
+    public ResultEntity<?> handleJwtTokenInvalidException(final TokenInvalidException e,
+                                                       final HttpServletRequest request,
+                                                       final HttpServletResponse response) {
+        log.warn("JwtTokenInvalidException App:{},Url:{},Message:{}",
+                AppEnvConsts.APP_NAME, request.getRequestURL(), e.getMessage());
+        return ResultUtils.failure(AuthErrorCode.INVALID);
     }
 
     /**
