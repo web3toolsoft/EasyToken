@@ -69,6 +69,61 @@
                 <artifactId>web3soft-commons-web</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-actuator</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-actuator-autoconfigure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-autoconfigure</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-spring-boot-starters</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-auth-redis-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-fileupload-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-kms-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-mybatis-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-security-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.web3soft.spring.boot</groupId>
+                <artifactId>web3soft-web-spring-boot-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
