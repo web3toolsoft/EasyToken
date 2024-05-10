@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.8</version>
+        <version>3.2.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.web3soft</groupId>
@@ -16,10 +16,10 @@
     <description>web3soft all modules parent pom</description>
     <properties>
         <revision>1.0.0-SNAPSHOT</revision>
-        <java.version>20</java.version>
+        <java.version>22</java.version>
         <!-- spring-cloud -->
-        <spring-cloud.version>2022.0.3</spring-cloud.version>
-        <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
+        <spring-cloud.version>2023.0.1</spring-cloud.version>
+        <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
         <!-- apache commons -->
         <commons-collections4.version>4.4</commons-collections4.version>
         <commons-io.version>2.13.0</commons-io.version>
@@ -42,6 +42,7 @@
         <googleauth.version>1.5.0</googleauth.version>
         <hutool-all.version>5.8.19</hutool-all.version>
         <modelmapper.version>3.1.1</modelmapper.version>
+        <lombok.version>1.18.30</lombok.version>
         <!-- security -->
         <jjwt.version>0.11.5</jjwt.version>
         <java-jwt.version>4.4.0</java-jwt.version>
