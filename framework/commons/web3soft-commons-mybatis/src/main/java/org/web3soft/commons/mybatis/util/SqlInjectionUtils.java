@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * SQL 注入验证工具类
  *
- * @author Tom Deng
+ * @author web3soft-team
  */
 public class SqlInjectionUtils {
     /**

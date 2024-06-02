@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 /**
  * 读写分离数据源配置类
  *
- * @author Tom Deng
+ * @author web3soft-team
  **/
 //@Configuration
 //@MapperScan(basePackages = ReadWriteDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "readwriteSqlSessionFactory")

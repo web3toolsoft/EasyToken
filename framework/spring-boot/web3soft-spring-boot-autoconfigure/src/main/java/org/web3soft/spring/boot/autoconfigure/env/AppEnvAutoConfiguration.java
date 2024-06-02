@@ -10,7 +10,7 @@ import org.web3soft.commons.dictionary.consts.AppEnvConsts;
 import java.util.Locale;
 
 /**
- * @author linus
+ * @author web3soft-team
  */
 @AutoConfiguration
 @ConditionalOnClass({AppEnvConsts.class})

@@ -5,7 +5,7 @@ import ch.qos.logback.classic.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  * @since 1.0.0
  */
 public class BaseTest {

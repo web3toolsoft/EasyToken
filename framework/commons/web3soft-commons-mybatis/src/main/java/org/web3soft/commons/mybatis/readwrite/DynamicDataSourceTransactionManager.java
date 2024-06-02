@@ -6,7 +6,7 @@ import org.springframework.transaction.TransactionDefinition;
 import javax.sql.DataSource;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public class DynamicDataSourceTransactionManager extends DataSourceTransactionManager {

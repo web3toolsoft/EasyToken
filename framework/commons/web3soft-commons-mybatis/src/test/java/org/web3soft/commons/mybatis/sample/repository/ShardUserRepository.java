@@ -8,7 +8,7 @@ import org.web3soft.commons.mybatis.sample.example.UserExample;
 /**
  * 数据访问接口
  *
- * @author Tom Deng
+ * @author web3soft-team
  */
 @Repository
 public interface ShardUserRepository extends CrudRepository<User, UserExample, Integer> {

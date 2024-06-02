@@ -10,7 +10,7 @@ import org.springframework.transaction.support.TransactionTemplate;
 import javax.sql.DataSource;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  *
  **/
 public abstract class AbstractDataSourceConfig {

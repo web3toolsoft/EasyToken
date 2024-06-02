@@ -5,7 +5,7 @@ import lombok.Data;
 /**
  * 按limit分页类 <br>
  *
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 @Data

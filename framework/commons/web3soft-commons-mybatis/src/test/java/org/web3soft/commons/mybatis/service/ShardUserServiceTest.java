@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
 /**
  * 非分表实现测试用例
  *
- * @author Tom Deng
+ * @author web3soft-team
  */
 public class ShardUserServiceTest extends BaseTest {
 

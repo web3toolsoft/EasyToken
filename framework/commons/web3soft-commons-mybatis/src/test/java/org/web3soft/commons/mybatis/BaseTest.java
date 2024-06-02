@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  *
  **/
 @SpringBootTest

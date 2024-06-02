@@ -1,7 +1,7 @@
 package org.web3soft.spring.boot.autoconfigure.fileupload;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  * @since 1.0.0
  */
 public class AbstractFileUploadClientConfig {

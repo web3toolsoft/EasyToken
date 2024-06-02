@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @param <T>
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public interface InsertRepository<T> {

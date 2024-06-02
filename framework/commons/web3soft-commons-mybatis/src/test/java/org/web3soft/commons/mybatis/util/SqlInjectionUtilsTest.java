@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.web3soft.commons.mybatis.BaseTest;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  */
 public class SqlInjectionUtilsTest extends BaseTest {
 

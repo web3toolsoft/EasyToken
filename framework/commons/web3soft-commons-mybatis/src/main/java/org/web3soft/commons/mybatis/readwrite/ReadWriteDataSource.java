@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * 读写分离数据源注解
  *
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 @Retention(RetentionPolicy.RUNTIME)

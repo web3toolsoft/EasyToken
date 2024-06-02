@@ -12,7 +12,7 @@ import java.util.Map;
  * @param <T> Po
  * @param <U> Example
  * @param <K> Key字段数据类型(Integer,Long,String等)
- * @author Tom Deng
+ * @author web3soft-team
  */
 public interface SelectRepository<T, U, K> {
     /**

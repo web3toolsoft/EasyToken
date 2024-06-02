@@ -16,7 +16,7 @@ import org.web3soft.spring.boot.autoconfigure.kms.KmsProperties;
  * This config must be applied to the bootstrap context, which is done by META-INF/spring.factories.<br/>
  * The properties here can be configured in bootstrap.[yml|xml|properties], but not in application.[yml]xml|properties]
  *
- * @author linus
+ * @author web3soft-team
  */
 @AutoConfiguration
 @ConditionalOnProperty(name = "web3soft.kms.provider", havingValue = "aliyun")

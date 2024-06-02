@@ -8,7 +8,7 @@ import org.web3soft.commons.mybatis.sample.service.UserService;
 import org.web3soft.commons.mybatis.service.AbstractCrudService;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  */
 @Service("userService")
 public class UserServiceImpl

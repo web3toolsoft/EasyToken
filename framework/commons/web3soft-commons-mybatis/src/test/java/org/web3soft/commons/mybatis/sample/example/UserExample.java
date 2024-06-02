@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Where条件Criteria类，代码生成工具生成
  *
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public class UserExample {

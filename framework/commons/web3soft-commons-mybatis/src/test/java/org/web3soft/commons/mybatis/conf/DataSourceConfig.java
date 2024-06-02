@@ -16,7 +16,7 @@ import javax.sql.DataSource;
 /**
  * 数据源配置类
  *
- * @author Tom Deng
+ * @author web3soft-team
  **/
 @Configuration
 @EnableTransactionManagement

@@ -5,7 +5,7 @@ import lombok.Getter;
 /**
  * 按主键id分页类
  *
- * @author Tom Deng
+ * @author web3soft-team
  */
 @Getter
 public class IdPageInfo {

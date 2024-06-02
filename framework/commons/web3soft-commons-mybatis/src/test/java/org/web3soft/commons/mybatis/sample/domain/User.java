@@ -16,7 +16,7 @@ import java.util.Date;
 /**
  * 持久化类
  *
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 @Data

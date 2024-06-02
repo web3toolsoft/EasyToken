@@ -1,7 +1,7 @@
 package org.web3soft.commons.mybatis.readwrite;
 
 /**
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public final class DynamicDataSourceHolder {

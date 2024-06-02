@@ -15,7 +15,7 @@ import java.util.Collections;
 import java.util.Map;
 
 /**
- * @author linus
+ * @author web3soft-team
  */
 @Slf4j
 public abstract class AbstractCommonErrorController extends AbstractErrorController {

@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 基于Mybatis Plugins方式的读写分离的动态数据源实现
  *
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {

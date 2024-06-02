@@ -11,7 +11,7 @@ import java.util.List;
  * @param <Dao>
  * @param <Po>
  * @param <Example>
- * @author Tom Deng
+ * @author web3soft-team
  *
  */
 public abstract class AbstractCrudService<Dao extends CrudRepository<Po, Example, Type>, Po, Example, Type>
