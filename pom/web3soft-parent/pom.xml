@@ -22,39 +22,36 @@
         <spring-cloud-alibaba.version>2023.0.1.0</spring-cloud-alibaba.version>
         <!-- apache commons -->
         <commons-collections4.version>4.4</commons-collections4.version>
-        <commons-io.version>2.13.0</commons-io.version>
+        <commons-io.version>2.16.1</commons-io.version>
         <commons-fileupload.version>1.5</commons-fileupload.version>
         <commons-compress.version>1.23.0</commons-compress.version>
-        <commons-text.version>1.10.0</commons-text.version>
+        <commons-text.version>1.12.0</commons-text.version>
         <commons-crypto.version>1.2.0</commons-crypto.version>
         <commons-configuration2.version>2.9.0</commons-configuration2.version>
         <commons-logging.version>1.2</commons-logging.version>
         <!-- db -->
-        <mybatis.version>3.5.13</mybatis.version>
-        <mybatis-spring.version>3.0.2</mybatis-spring.version>
-        <redisson.version>3.21.3</redisson.version>
+        <mybatis.version>3.5.16</mybatis.version>
+        <mybatis-spring.version>3.0.3</mybatis-spring.version>
+        <redisson.version>3.31.0</redisson.version>
         <!-- utils -->
-        <guava.version>32.0.1-jre</guava.version>
+        <guava.version>33.2.1-jre</guava.version>
         <poi.version>5.2.3</poi.version>
-        <disruptor.version>3.4.4</disruptor.version>
-        <retrofit.version>2.9.0</retrofit.version>
+        <disruptor.version>4.0.0</disruptor.version>
+        <retrofit.version>2.11.0</retrofit.version>
         <jsoup.version>1.16.1</jsoup.version>
         <googleauth.version>1.5.0</googleauth.version>
-        <hutool-all.version>5.8.19</hutool-all.version>
-        <modelmapper.version>3.1.1</modelmapper.version>
-        <lombok.version>1.18.30</lombok.version>
+        <hutool-all.version>5.8.28</hutool-all.version>
+        <modelmapper.version>3.2.0</modelmapper.version>
+        <lombok.version>1.18.32</lombok.version>
         <!-- security -->
         <jjwt.version>0.11.5</jjwt.version>
         <java-jwt.version>4.4.0</java-jwt.version>
         <owasp-encoder.version>1.2.3</owasp-encoder.version>
-        <bcprov-jdk18on.version>1.73</bcprov-jdk18on.version>
-        <!-- json & text -->
-        <fastjson.version>1.2.83</fastjson.version>
-        <retrofit.fastjson.version>2.1.0</retrofit.fastjson.version>
+        <bcprov-jdk18on.version>1.78.1</bcprov-jdk18on.version>
         <!-- job scheduler -->
-        <xxl-job-core.version>2.0.4</xxl-job-core.version>
+        <xxl-job-core.version>2.4.1</xxl-job-core.version>
         <!-- spring boot starters -->
-        <mybatis-spring-boot-starter.version>3.0.1</mybatis-spring-boot-starter.version>
+        <mybatis-spring-boot-starter.version>3.0.3</mybatis-spring-boot-starter.version>
         <!-- spring-boot-admin -->
         <spring-boot-admin.version>3.0.4</spring-boot-admin.version>
         <!-- google phone number lib -->
